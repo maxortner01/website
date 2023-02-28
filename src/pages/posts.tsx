@@ -8,9 +8,11 @@ import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({ posts }) {
+export default function Home({ posts }: any) {
   const router = useRouter()
-  var tags = router.query["tag"];
+  var tags: String[] = [];
+  if (router.query["tag"] != undefined)
+    tags = (router.query["tag"] as string).split(",");
 
   var filteredposts = posts;
   console.log(posts.length)
@@ -20,9 +22,8 @@ export default function Home({ posts }) {
     if (tags == null || tags == undefined) tags = [];
     else 
     {
-      tags = tags.split(",");
       if (tags[0] == "") tags.pop()
-      filteredposts = posts.filter(post => {
+      filteredposts = posts.filter((post: any) => {
         return tags.every(val => post.frontmatter.tags.includes(val));
       });
     }
@@ -33,7 +34,7 @@ export default function Home({ posts }) {
       <div className="prose prose-p:text-justify mx-auto">
       <div className="p-20">
       <h1 className="text-center">No posts.</h1>
-      <div className="text-center">There aren't any posts with tags: <i>{tags.join(', ')}</i>.</div>
+      <div className="text-center">There aren&apos;t any posts with tags: <i>{tags.join(', ')}</i>.</div>
       </div>
       </div>
       </div>
@@ -42,7 +43,7 @@ export default function Home({ posts }) {
 
   return (
     <div className="flex flex-col divide-slate-200 divide-y py-5">
-      {filteredposts.map(({ slug, frontmatter }) => (
+      {filteredposts.map(({ slug, frontmatter }: any) => (
         <div
           key={slug}
           className='transition px-10  hover:bg-gray-100'
@@ -55,11 +56,11 @@ export default function Home({ posts }) {
               <p className="py-2 pb-3">{frontmatter.metaDesc}</p>
             </Link>
               <div className="flex flex-row pb-4"> 
-                {frontmatter.tags.filter(tag => { return tags.includes(tag); }).map((tag, i) => (
-                  <div className="mr-4 "><Link href={"/posts?tag=" + tags.filter(t => t != tag).join(",")} className="p-1 bg-amber-500 rounded text-sm text-white">{tag}</Link></div>
+                {frontmatter.tags.filter((tag: any) => { return tags.includes(tag); }).map((tag: any) => (
+                  <div className="mr-4 " key={tag}><Link href={"/posts?tag=" + tags.filter(t => t != tag).join(",")} className="p-1 bg-amber-500 rounded text-sm text-white">{tag}</Link></div>
                 ))}
-                {frontmatter.tags.filter(tag => { return !tags.includes(tag); }).map((tag, i) => (
-                  <div className="mr-4 "><Link href={"/posts?tag=" + tags.concat([tag.replace(" ", "%20")]).join(',')} className="p-1 bg-slate-300 rounded text-sm text-white">{tag}</Link></div>
+                {frontmatter.tags.filter((tag: any) => { return !tags.includes(tag); }).map((tag: any) => (
+                  <div className="mr-4 " key={tag}><Link href={"/posts?tag=" + tags.concat([tag.replace(" ", "%20")]).join(',')} className="p-1 bg-slate-300 rounded text-sm text-white">{tag}</Link></div>
                 ))}
               </div>
         </div>

@@ -36,7 +36,7 @@ export default function PostPage({ frontmatter, content }) {
     return (
       <div className='prose prose-sm prose-p:text-justify mx-auto mt-10'>
 
-        <Script dangerouslySetInnerHTML={{
+        <Script id="configure" dangerouslySetInnerHTML={{
     __html: `MathJax = {
         tex: {
           inlineMath: [['$', '$']]
