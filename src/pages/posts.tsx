@@ -17,7 +17,7 @@ export default function Home({ posts }: any) {
   var filteredposts = posts;
   console.log(posts.length)
 
-  if (filteredposts.length > 1)
+  if (filteredposts.length > 0)
   {
     if (tags == null || tags == undefined) tags = [];
     else 
