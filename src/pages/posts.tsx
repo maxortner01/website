@@ -33,7 +33,7 @@ export default function Home({ posts }) {
       <div className="prose prose-p:text-justify mx-auto">
       <div className="p-20">
       <h1 className="text-center">No posts.</h1>
-      <div className="text-center">There aren't any posts with these tags.</div>
+      <div className="text-center">There aren't any posts with tags: <i>{tags.join(', ')}</i>.</div>
       </div>
       </div>
       </div>
@@ -47,19 +47,19 @@ export default function Home({ posts }) {
           key={slug}
           className='transition px-10  hover:bg-gray-100'
         >
-            <a href={`/posts/${slug}`}>
+            <Link href={`/posts/${slug}`}>
               <h1 className="font-bold text-xl pt-4">{frontmatter.title}</h1>
               <p className="text-gray-300 text-sm">{
                 new Date(frontmatter.date).toLocaleString('default', { month: 'long', day: "numeric", year: "numeric" })
               }</p>
               <p className="py-2 pb-3">{frontmatter.metaDesc}</p>
-            </a>
+            </Link>
               <div className="flex flex-row pb-4"> 
                 {frontmatter.tags.filter(tag => { return tags.includes(tag); }).map((tag, i) => (
-                  <div className="mr-4 "><a href={"/posts?tag=" + tags.filter(t => t != tag).join(",")} className="p-1 bg-amber-500 rounded text-sm text-white">{tag}</a></div>
+                  <div className="mr-4 "><Link href={"/posts?tag=" + tags.filter(t => t != tag).join(",")} className="p-1 bg-amber-500 rounded text-sm text-white">{tag}</Link></div>
                 ))}
                 {frontmatter.tags.filter(tag => { return !tags.includes(tag); }).map((tag, i) => (
-                  <div className="mr-4 "><a href={"/posts?tag=" + tags.concat([tag.replace(" ", "%20")]).join(',')} className="p-1 bg-slate-300 rounded text-sm text-white">{tag}</a></div>
+                  <div className="mr-4 "><Link href={"/posts?tag=" + tags.concat([tag.replace(" ", "%20")]).join(',')} className="p-1 bg-slate-300 rounded text-sm text-white">{tag}</Link></div>
                 ))}
               </div>
         </div>
@@ -87,9 +87,9 @@ export async function getStaticProps() {
     var date1 = new Date(a.frontmatter.date);
     var date2 = new Date(b.frontmatter.date);
 
-    var distancea = Math.abs(new Date().valueOf() - date1.valueOf());
+    var distanceLink = Math.abs(new Date().valueOf() - date1.valueOf());
     var distanceb = Math.abs(new Date().valueOf() - date2.valueOf());
-    return distancea - distanceb;
+    return distanceLink - distanceb;
   });
   return {
     props: {
