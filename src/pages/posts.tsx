@@ -12,25 +12,28 @@ export default function Home({ posts }) {
   const router = useRouter()
   var tags = router.query["tag"];
 
+  var filteredposts = posts;
+  console.log(posts.length)
 
-  var filteredposts = posts
-  if (tags == null) tags = [];
-  else
+  if (filteredposts.length > 1)
   {
-    tags = tags.split(",");
-    if (tags[0] == "") tags.pop()
-    filteredposts = posts.filter(post => {
-      return tags.every(val => post.frontmatter.tags.includes(val));
-    });
+    if (tags == null || tags == undefined) tags = [];
+    else 
+    {
+      tags = tags.split(",");
+      if (tags[0] == "") tags.pop()
+      filteredposts = posts.filter(post => {
+        return tags.every(val => post.frontmatter.tags.includes(val));
+      });
+    }
   }
-
-  if (filteredposts.length == 0)
+  else
   {
     return (<div>
       <div className="prose prose-p:text-justify mx-auto">
       <div className="p-20">
       <h1 className="text-center">No posts.</h1>
-      <div className="text-center">There aren't any posts with tags: <i>{tags.join(', ')}</i>.</div>
+      <div className="text-center">There aren't any posts with these tags.</div>
       </div>
       </div>
       </div>
