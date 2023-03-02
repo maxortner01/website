@@ -14,16 +14,22 @@ export default function Home({ posts }: any) {
   if (router.query["tag"] != undefined)
     tags = (router.query["tag"] as string).split(",");
 
-  var filteredposts = posts;
-  console.log(posts.length)
+  var final_posts = [];
+  for (var post in posts)
+  {
+    if (posts[post].slug.includes(".")) continue;
+    final_posts.push(posts[post]);
+  }
 
+  var filteredposts = final_posts;
+  
   if (filteredposts.length > 0)
   {
     if (tags == null || tags == undefined) tags = [];
     else 
     {
       if (tags[0] == "") tags.pop()
-      filteredposts = posts.filter((post: any) => {
+      filteredposts = filteredposts.filter((post: any) => {
         return tags.every(val => post.frontmatter.tags.includes(val));
       });
     }
@@ -42,7 +48,7 @@ export default function Home({ posts }: any) {
   }
 
   return (
-    <div className="flex flex-col divide-slate-200 divide-y py-5">
+    <div className="flex flex-col divide-slate-200 divide-y">
       {filteredposts.map(({ slug, frontmatter }: any) => (
         <div
           key={slug}
