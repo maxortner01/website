@@ -114,8 +114,17 @@ $$
   \bar{\partial}\_\mu = \frac{\partial x^\nu}{\partial\bar{x}^\mu}\partial\_\nu
 $$
 which is given by the chain rule. This is exactly the same as our discussion above, but now we have 
-$$
+$$ \tag{3}
   \Lambda^\mu_\nu = \frac{\partial\bar{x}^\mu}{\partial x^\nu}.
 $$
 
+### Rigid Transformations
+We can do a quick exercise using the three-dimensional Euclidean metric, which is the Kronecker delta $\delta_{ij}$. The transformations that are allowed are the ones that keep the metric of the same form:
+$$
+  \delta_{ij} = \Lambda^n_i\Lambda^m_j\delta_{nm} = \frac{\partial \bar{x}^n}{\partial x^i}\frac{\partial \bar{x}^m}{\partial x^j}\delta_{nm}.
+$$
+Using the property of the Kronecker delta allows us to write 
+$$
+  \delta_{ij} = \frac{\partial \bar{x}^n}{\partial x^i}\frac{\partial \bar{x}^n}{\partial x^j}.
+$$
 

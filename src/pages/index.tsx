@@ -1,10 +1,16 @@
 import Head from 'next/head'
 import Link from 'next/link';
+import Script from 'next/script';
 
 export default function Posts() {
   return (
-    <div>
-      <div className="prose prose-p:text-justify mx-auto">
+    <div className="h-screen">
+      <Head>
+        <Script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"/>
+        <Script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.dom.js"/>
+        <Script src="/test.js"/>
+      </Head>
+      <div className="prose prose-p:text-justify mx-auto h-screen">
       <div className="p-20">
       <h1 className="text-center">Welcome to my website.</h1>
       <div className="text-center"><i>I am a mathematician, physicist, and computer scientist.</i></div>

@@ -52,7 +52,7 @@ export default function Home({ posts }: any) {
       {filteredposts.map(({ slug, frontmatter }: any) => (
         <div
           key={slug}
-          className='transition px-10  hover:bg-gray-100'
+          className='transition px-14  hover:bg-gray-100'
         >
             <Link href={`/posts/${slug}`}>
               <h1 className="font-bold text-xl pt-4">{frontmatter.title}</h1>
