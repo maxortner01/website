@@ -5,11 +5,9 @@ import Script from 'next/script';
 export default function Posts() {
   return (
     <div className="h-screen">
-      <Head>
-        <Script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"/>
-        <Script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.dom.js"/>
-        <Script src="/test.js"/>
-      </Head>
+      <Script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"/>
+      <Script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.dom.js"/>
+      <Script src="/test.js"/>
       <div className="prose prose-p:text-justify mx-auto h-screen">
       <div className="p-20">
       <h1 className="text-center">Welcome to my website.</h1>
