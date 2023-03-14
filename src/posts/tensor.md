@@ -1,6 +1,6 @@
 ---
 title: "Tensors"
-metaDesc: "They're scary (and everyone want to explain them their own way), so here's my own way."
+metaDesc: "They're scary (and everyone wants to explain them their own way), so here's my own way."
 date: "2023-02-22"
 tags: 
  - tensors

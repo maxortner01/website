@@ -1,8 +1,16 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
+
+
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ghchart.rshah.org',
+        port: '',
+        pathname: '/maxortner01'
+      },
+    ],
+  },
+  reactStrictMode: true
 }
-
-
-
-module.exports = nextConfig
