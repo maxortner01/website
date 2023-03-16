@@ -1,10 +1,10 @@
 ---
 title: "On Nietzsche and Epicurus"
 metaDesc: "A few short essay selections from a class on ethics I took recently."
-date: "2023-03-13"
+date: "2023-03-12"
 tags: 
  - philosophy
- - essay
+ - ethics
  - Nietzsche
  - Epicurus
 ---

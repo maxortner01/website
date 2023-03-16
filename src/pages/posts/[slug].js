@@ -34,7 +34,7 @@ export async function getStaticProps({ params: { slug } }) {
 
 export default function PostPage({ frontmatter, content }) {
     return (
-      <div className='prose prose-sm prose-p:text-justify mx-auto mt-10'>
+      <div className='prose prose-sm prose-p:text-justify prose-img:w-96 prose-img:m-auto mx-auto mt-10 mb-20'>
 
         <Script id="configure" dangerouslySetInnerHTML={{
     __html: `MathJax = {
