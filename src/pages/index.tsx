@@ -6,7 +6,8 @@ import Image from 'next/image';
 export default function Posts() {
   return (
     <div className="h-screen">
-      <div className="prose prose-p:text-justify mx-auto h-screen">
+      <title>Max Ortner</title>
+      <div className="prose prose-sm lg:prose-md prose-p:text-justify mx-auto h-screen">
       <div className="p-20">
       <h1 className="text-center">Welcome to my website.</h1>
       <div className="text-center"><i>I am a mathematician, physicist, and computer scientist.</i></div>

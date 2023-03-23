@@ -34,7 +34,8 @@ export async function getStaticProps({ params: { slug } }) {
 
 export default function PostPage({ frontmatter, content }) {
     return (
-      <div className='prose prose-sm prose-p:text-justify prose-img:w-96 prose-img:m-auto mx-auto mt-10 mb-20'>
+      <div className='prose prose-sm prose-p:text-justify prose-img:w-96 prose-img:m-auto w-3/4 mx-auto mt-10 mb-20'>
+      <link rel="stylesheet" href="/equations.css"></link>
 
         <Script id="configure" dangerouslySetInnerHTML={{
     __html: `MathJax = {
@@ -46,8 +47,9 @@ export default function PostPage({ frontmatter, content }) {
         }
       };`,
   }}></Script>
-        <Script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></Script>
-
+        <Script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></Script>
+        <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></Script>
+        <title>{frontmatter.title}</title>
         <h1 className="text-center">{frontmatter.title}</h1>
         <h4 className='text-gray-300'>{
             new Date(frontmatter.date).toLocaleString('default', { month: 'long', day: "numeric", year: "numeric" })

@@ -48,7 +48,7 @@ export default function Home({ posts }: any) {
   }
 
   return (
-    <div className="flex flex-col divide-slate-200 divide-y">
+    <div className="flex flex-col divide-slate-200 divide-y"><title>Max Ortner - Posts</title>
       {filteredposts.map(({ slug, frontmatter }: any) => (
         <div
           key={slug}
