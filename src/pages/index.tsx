@@ -242,7 +242,6 @@ export default function Index({ posts, resume, code }) {
     <div onLoad={onLoad}>
       <Head>
         <title>Max Ortner</title>
-        <link rel="stylesheet" href="/agate.css" />
       </Head>
       <Script id="chart-script"
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
