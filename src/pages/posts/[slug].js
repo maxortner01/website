@@ -4,6 +4,8 @@ import md from 'markdown-it';
 import Head from 'next/head';
 import Script from 'next/script'
 import Layout from '@/components/layout'
+import { useEffect } from 'react';
+import hljs from 'highlight.js';
 
 export async function getStaticPaths() {
     // Retrieve all our slugs
@@ -35,12 +37,15 @@ export async function getStaticProps({ params: { slug } }) {
 
 function Post({ frontmatter, content })
 {
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
+
   return (
     <div className='prose prose prose-p:text-justify prose-img:w-96 prose-img:m-auto mx-auto'>
     <link rel="stylesheet" href="/equations.css"></link>
     <link rel="stylesheet" href="/agate.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <Script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" />
       <Script id="configure" dangerouslySetInnerHTML={{
       __html: `MathJax = {
           tex: {

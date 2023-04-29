@@ -9,6 +9,7 @@ import matter, { language } from 'gray-matter';
 import { Post, PostFrame } from './posts';
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
+import hljs from 'highlight.js';
 
 function Project({ title, link, date, desc, perc=100 })
 {
@@ -232,18 +233,21 @@ export default function Index({ posts, resume, code }) {
     children = Array.from(document.getElementById("info-block")?.children);
     children.forEach((child) => child.classList.remove("translate-x-10", "opacity-0"));
   }
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, [])
   
   return (
     <div onLoad={onLoad}>
       <Head>
         <title>Max Ortner</title>
-        <Script
-        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-        </Script>
         <link rel="stylesheet" href="/agate.css" />
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script>
       </Head>
+      <Script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+      </Script>
+      <Script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></Script>
       
       <div className='bg-slate-200 pt-40 pb-40 bg-cover bg-[url("/background.png")]'>
       <div className='w-2/3 m-auto'>

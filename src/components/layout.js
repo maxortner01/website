@@ -14,10 +14,10 @@ export default function Layout({ children }) {
   return (
     <div className='font-sans-serif'>
     <div className='z-20 flex flex-row border-2 border-sky-400 fixed top-4 left-[50%] -translate-x-[50%] backdrop-blur-sm bg-white/40 shadow-md text-lg space-x-5 rounded-lg overflow-hidden'>
-        <a href="/"><NavBarButton text={"Max Ortner"} className={"font-medium text-sky-500 mr-4"} /></a>
-        <a href="/posts"><NavBarButton text={"Posts"}   className={"font-light text-black text-opacity-60"} /></a>
-        <a href="/resume"><NavBarButton text={"Resume"} className={"font-light text-black text-opacity-60"} /></a>
-        <a href="https://github.com/maxortner01"><NavBarButton text={"Github"} className={"font-light text-black text-opacity-60"} /></a>
+        <Link href="/"><NavBarButton text={"Max Ortner"} className={"font-medium text-sky-500 mr-4"} /></Link>
+        <Link href="/posts"><NavBarButton text={"Posts"}   className={"font-light text-black text-opacity-60"} /></Link>
+        <Link href="/resume"><NavBarButton text={"Resume"} className={"font-light text-black text-opacity-60"} /></Link>
+        <Link href="https://github.com/maxortner01"><NavBarButton text={"Github"} className={"font-light text-black text-opacity-60"} /></Link>
     </div>
     <div>
         {children}
