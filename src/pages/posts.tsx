@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 
-export function Tag({ children, className="", perc=70 })
+export function Tag({ children, className="", perc=70 }: any)
 {
   return (
     <div className={'p-[1%] pt-[0.25%] pb-[0.25%] rounded-md border border-sky-600 text-sky-600 text-[' + perc.toString() + '%] mb-1 select-none cursor-default ' + className}>
@@ -13,7 +13,7 @@ export function Tag({ children, className="", perc=70 })
   )
 }
 
-export function PostFrame({ children, link, className = "" })
+export function PostFrame({ children, link, className = "" }: any)
 {
   return (
     <a href={link} key={link}>
@@ -24,7 +24,7 @@ export function PostFrame({ children, link, className = "" })
   )
 }
 
-export function Post({ title, link, date, desc, tags, perc=100, tagperc=70 })
+export function Post({ title, link, date, desc, tags, perc=100, tagperc=70 }: any)
 {
   return (
     <PostFrame link={link}>
@@ -35,7 +35,7 @@ export function Post({ title, link, date, desc, tags, perc=100, tagperc=70 })
       <p className={'text-gray-400 text-[' + (perc - 15).toString() + '%] mb-1'}>{desc}</p>
       <div className='flex flex-row flex-wrap space-x-1'>
         {
-          tags.map((tag) => {
+          tags.map((tag: any) => {
             return <Tag key={tag} perc={tagperc}>{tag}</Tag>
           })
         }
@@ -45,7 +45,7 @@ export function Post({ title, link, date, desc, tags, perc=100, tagperc=70 })
 }
 
 export default function Posts({ posts }: any) {
-  posts = posts.filter(({slug}) => slug != ".DS_Store")
+  posts = posts.filter(({slug}: any) => slug != ".DS_Store")
 
   return (
     <>
@@ -54,7 +54,7 @@ export default function Posts({ posts }: any) {
     <h1 className='font-bold text-3xl text-center text-sky-500'>Posts</h1>
     <hr />
     {
-      posts.map(({ slug, frontmatter }) => {
+      posts.map(({ slug, frontmatter }: any) => {
         return <Post key={slug} title={frontmatter.title} link={"/posts/" + slug} date={frontmatter.date} desc={frontmatter.metaDesc} tags={frontmatter.tags} perc={150} tagperc={80} />
       })
     }

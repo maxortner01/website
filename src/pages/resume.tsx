@@ -4,7 +4,7 @@ import Image from "next/image";
 import fs from 'fs';
 import { language } from "gray-matter";
 
-function WorkCard({title, location, desc, date, className})
+function WorkCard({title, location, desc, date, className}: any)
 {
     return(
         <div className={"mb-4 " + className}>
@@ -22,18 +22,18 @@ function WorkCard({title, location, desc, date, className})
     )
 }
 
-function SkillCell({ title, type, first=false })
+function SkillCell({ title, type, first=false }: any)
 {
     return <div className={"rounded-md print:scale-[90%] border p-[2%] pt-[1%] pb-[1%] mb-1 " + (first?"ml-1 ":" ") + (type == "language"?"border-sky-600":"text-sky-900 border-sky-900")}>{title}</div>
 }
 
-function Education({ college, creditial, data })
+function Education({ college, creditial, data }: any)
 {
     return (<>
         <h2 className="text-gray-600 text-[80%] font-bold">{college}</h2>
         <h2 className="text-gray-500 text-[70%] mb-1"><i>{creditial}</i></h2>
         {
-            data.map(({value, name}) => {
+            data.map(({value, name}: any) => {
                 return <h2 key={value} className="text-gray-500 text-[70%]">{name}: <span className="font-bold">{value}</span></h2>
             })
         }
@@ -41,21 +41,26 @@ function Education({ college, creditial, data })
     )
 }
 
-export default function Resume({ resume })
+export default function Resume({ resume }: any)
 {
     function onLoad()
     {
         var contain = document.getElementById("work-contain");
+        var children = []
 
-        var children = Array.from(contain.children);
-        children.forEach((child) => child.classList.replace("translate-y-6", "translate-y-0"));
-        children.forEach((child) => child.classList.replace("opacity-0", "opacity-100"));
+        if (contain){
+            children = Array.from(contain.children);
+            children.forEach((child) => child.classList.replace("translate-y-6", "translate-y-0"));
+            children.forEach((child) => child.classList.replace("opacity-0", "opacity-100"));
+        }
 
         contain = document.getElementById("work-contain2");
 
-        children = Array.from(contain.children);
-        children.forEach((child) => child.classList.replace("translate-y-6", "translate-y-0"));
-        children.forEach((child) => child.classList.replace("opacity-0", "opacity-100"));
+        if (contain){
+            children = Array.from(contain.children);
+            children.forEach((child) => child.classList.replace("translate-y-6", "translate-y-0"));
+            children.forEach((child) => child.classList.replace("opacity-0", "opacity-100"));
+        }
     }
 
     return (
@@ -78,7 +83,7 @@ export default function Resume({ resume })
 
                 <div id="work-contain">
                 {
-                    resume.resume.workExperience.map((experience, index) => {
+                    resume.resume.workExperience.map((experience: any, index: number) => {
                         return <WorkCard
                                     key={experience.title}
                                     title={experience.title}
@@ -96,7 +101,7 @@ export default function Resume({ resume })
 
                 <div id="work-contain2">
                 {
-                    resume.projects.slice(0, 2).map((project, index) => {
+                    resume.projects.slice(0, 2).map((project: any, index: number) => {
                         return <WorkCard
                                     key = {project.title}
                                     title={<a className="underline" href={project.link}>{project.title}</a>}
@@ -116,7 +121,7 @@ export default function Resume({ resume })
                 <div className="flex flex-col text-gray-500 text-[80%] print:text-[50%]">
                     <div className="mt-2 mb-2">
                         {
-                            resume.resume.contact.address.map((line) => <p key={line}>{line}</p>)
+                            resume.resume.contact.address.map((line: string) => <p key={line}>{line}</p>)
                         }
                     </div>
                     <div><a href={"mailto:" + resume.resume.contact.email}>{resume.resume.contact.email}</a></div>
@@ -129,7 +134,7 @@ export default function Resume({ resume })
                 <p className="text-[80%] print:text-[60%] mb-[2%] font-bold"><i>Significant Experience</i></p>
                 <div className="flex flex-row flex-wrap text-[80%] print:text-[50%] text-sky-500 space-x-1">
                     {
-                        resume.resume.skills.filter((skill) => skill.level == "significant").map((skill, index) => {
+                        resume.resume.skills.filter((skill: any) => skill.level == "significant").map((skill: any, index: number) => {
                             return <SkillCell key={index} title={skill.name} type={skill.type} first={index == 0} />
                         })
                     }
@@ -137,7 +142,7 @@ export default function Resume({ resume })
                 <p className="text-[80%] print:text-[60%] mb-[2%] mt-[5%] font-bold"><i>Other Exposure</i></p>
                 <div className="flex flex-row flex-wrap text-[80%] print:text-[50%] text-sky-500 space-x-1">
                     {
-                        resume.resume.skills.filter((skill) => skill.level == "other").map((skill, index) => {
+                        resume.resume.skills.filter((skill: any) => skill.level == "other").map((skill: any, index: number) => {
                             return <SkillCell key={index} title={skill.name} type={skill.type} first={index == 0} />
                         })
                     }
@@ -148,7 +153,7 @@ export default function Resume({ resume })
                 <h1 className="text-sky-500 text-[100%] print:text-[70%] font-extrabold">Education</h1>
                 <hr className="pt-2 mb-2" />
                 {
-                    resume.resume.education.map((college) => {
+                    resume.resume.education.map((college: any) => {
                         return <Education key={college.title} college={college.title} creditial={college.creditial} data={college.data} />
                     })
                 }
