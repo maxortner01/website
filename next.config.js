@@ -10,6 +10,12 @@ module.exports = {
         port: '',
         pathname: '/maxortner01'
       },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
   reactStrictMode: true

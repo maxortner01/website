@@ -1,0 +1,151 @@
+{
+    "status": "looking for work with C++",
+    "pinned_repos": [
+        "cpp2d", "SGAL", "ck2-Save-Parser", "ansel", "simple-compiler-utility"
+    ],
+    "projects": [
+        {
+            "title": "cpp2d",
+            "link": "https://github.com/maxortner01/cpp2d",
+            "desc": "My current project centered around a robust graphics API and a clean and minimal overhead engine API all written in C++. It is currently in its early stages, but it already supports many different features.",
+            "date": "Current"
+        },
+        {
+            "title": "SGAL",
+            "link": "https://github.com/maxortner01/sgal",
+            "desc": "Inspired by the framework API of SFML, this project wishes to bring clean and minimal overhead API functionality to the rendering of 3D scenes. This includes access functionality to generating vertex arrays using multiple threads. It does not require any dependencies (all window handling is done inside of SGAL).",
+            "date": "Fall 2020"
+        },
+        {
+            "title": "This website",
+            "link": "https://github.com/maxortner01/website",
+            "desc": "This website is also an ongoing project, though web development was never a primary focus of mine. It was written from the ground up in javascript using Next.js.",
+            "date": "Current"
+        }
+    ],
+    "resume": 
+    {
+        "contact": 
+        {
+            "phone": "+1 (270) 227-9521",
+            "address": [
+                "Brentwood, TN"
+            ],
+            "email": "contact@maxortner.com"
+        },
+        "education": [
+            {
+                "title": "Belmont University",
+                "creditial": "Math and Physics Double Major",
+                "data": [
+                    {
+                        "name": "Current GPA",
+                        "value": "3.79"
+                    },
+                    {
+                        "name": "Anticipated graduation",
+                        "value": "December 2023"
+                    }
+                ]
+            }
+        ],
+        "workExperience": [
+            {
+                "title": "Graphics Engine Programming",
+                "location": "Personal",
+                "desc": "Pursuing graphics and graphics engine programming on a personal level for many years. Specifically implementing and developing high performance systems in C++ in an easy-to-use and coherent form intended for users.",
+                "date": "~2011 - Present"
+            },
+            {
+                "title": "Student",
+                "location": "Belmont University",
+                "desc": "Achieved 3.79 GPA and have participated in over 2 years of research. My intended graduation is December, 2023.",
+                "date": "Aug. 2019 - Present"
+            },
+            {
+                "title": "Tutoring",
+                "location": "Belmont University",
+                "desc": "Tutored many different students on math and physics topics. This includes personal tutoring as well as through the learning center present at my university.",
+                "date": "Jan. 2020 - May 2023"
+            },
+            {
+                "title": "Certified Restaraunt Supervisor",
+                "location": "Red Lobster",
+                "desc": "Managed the staff and daily activities, which included tasks like making sure everyone was working well together and managing the restaurant's daily cash intake.",
+                "date": "May 2021 - Nov. 2022"
+            }
+        ],
+        "skills": [
+            {
+                "type": "language",
+                "name": "C++",
+                "level": "significant"
+            },
+            {
+                "type": "language",
+                "name": "Python",
+                "level": "significant"
+            },
+            {
+                "type": "language",
+                "name": "C",
+                "level": "significant"
+            },
+            {
+                "type": "framework",
+                "name": "OpenGL",
+                "level": "significant"
+            },
+            {
+                "type": "framework",
+                "name": "Windows",
+                "level": "significant"
+            },
+            {
+                "type": "framework",
+                "name": "Linux",
+                "level": "significant"
+            },
+            {
+                "type": "framework",
+                "name": "CMake",
+                "level": "significant"
+            },
+            {
+                "type": "framework",
+                "name": "Visual Studio",
+                "level": "significant"
+            },
+            {
+                "type": "framework",
+                "name": "Git",
+                "level": "significant"
+            },
+            {
+                "type": "language",
+                "name": "Rust",
+                "level": "other"
+            },
+            {
+                "type": "language",
+                "name": "JS",
+                "level": "other"
+            },
+            {
+                "type": "language",
+                "name": "Julia",
+                "level": "other"
+            },
+            {
+                "type": "framework",
+                "name": "Vulkan",
+                "level": "other"
+            },
+            {
+                "type": "framework",
+                "name": "AWS",
+                "level": "other"
+            }
+        ]
+    }
+}

@@ -1,78 +1,67 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
-
 import fs from 'fs';
 import matter from 'gray-matter';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 
-const inter = Inter({ subsets: ['latin'] })
+export function Tag({ children, className="", perc=70 })
+{
+  return (
+    <div className={'p-[1%] pt-[0.25%] pb-[0.25%] rounded-md border border-sky-600 text-sky-600 text-[' + perc.toString() + '%] mb-1 select-none cursor-default ' + className}>
+      {children}
+    </div>
+  )
+}
 
-export default function Home({ posts }: any) {
-  const router = useRouter()
-  var tags: String[] = [];
-  if (router.query["tag"] != undefined)
-    tags = (router.query["tag"] as string).split(",");
+export function PostFrame({ children, link, className = "" })
+{
+  return (
+    <a href={link} key={link}>
+    <div className={'select-none cursor-pointer hover:bg-slate-100 p-2 ' + className}>
+    {children}
+    </div>
+    </a>
+  )
+}
 
-  var final_posts = [];
-  for (var post in posts)
-  {
-    if (posts[post].slug.includes(".")) continue;
-    final_posts.push(posts[post]);
-  }
+export function Post({ title, link, date, desc, tags, perc=100, tagperc=70 })
+{
+  return (
+    <PostFrame link={link}>
+      <div className={'flex flex-row text-[' + perc.toString() + '%]'}>
+        <h1 className='flex-grow font-medium text-gray-600'>{title}</h1>
+        <h2 className='font-light text-sky-400'>{date}</h2>
+      </div>
+      <p className={'text-gray-400 text-[' + (perc - 15).toString() + '%] mb-1'}>{desc}</p>
+      <div className='flex flex-row flex-wrap space-x-1'>
+        {
+          tags.map((tag) => {
+            return <Tag key={tag} perc={tagperc}>{tag}</Tag>
+          })
+        }
+      </div>
+    </PostFrame>
+  )
+}
 
-  var filteredposts = final_posts;
-  
-  if (filteredposts.length > 0)
-  {
-    if (tags == null || tags == undefined) tags = [];
-    else 
-    {
-      if (tags[0] == "") tags.pop()
-      filteredposts = filteredposts.filter((post: any) => {
-        return tags.every(val => post.frontmatter.tags.includes(val));
-      });
-    }
-  }
-  else
-  {
-    return (<div>
-      <div className="prose prose-p:text-justify mx-auto">
-      <div className="p-20">
-      <h1 className="text-center">No posts.</h1>
-      <div className="text-center">There aren&apos;t any posts with tags: <i>{tags.join(', ')}</i>.</div>
-      </div>
-      </div>
-      </div>
-    );
-  }
+export default function Posts({ posts }: any) {
+  posts = posts.filter(({slug}) => slug != ".DS_Store")
 
   return (
-    <div className="flex flex-col divide-slate-200 divide-y"><title>Max Ortner - Posts</title>
-      {filteredposts.map(({ slug, frontmatter }: any) => (
-        <div
-          key={slug}
-          className='transition px-14  hover:bg-gray-100'
-        >
-            <Link href={`/posts/${slug}`}>
-              <h1 className="font-bold text-xl pt-4">{frontmatter.title}</h1>
-              <p className="text-gray-300 text-sm">{
-                new Date(frontmatter.date).toLocaleString('default', { month: 'long', day: "numeric", year: "numeric" })
-              }</p>
-              <p className="py-2 pb-3">{frontmatter.metaDesc}</p>
-            </Link>
-              <div className="flex flex-row pb-4"> 
-                {frontmatter.tags.filter((tag: any) => { return tags.includes(tag); }).map((tag: any) => (
-                  <div className="mr-4 " key={tag}><Link href={"/posts?tag=" + tags.filter(t => t != tag).join(",")} className="p-1 bg-amber-500 rounded text-sm text-white">{tag}</Link></div>
-                ))}
-                {frontmatter.tags.filter((tag: any) => { return !tags.includes(tag); }).map((tag: any) => (
-                  <div className="mr-4 " key={tag}><Link href={"/posts?tag=" + tags.concat([tag.replace(" ", "%20")]).join(',')} className="p-1 bg-slate-300 rounded text-sm text-white">{tag}</Link></div>
-                ))}
-              </div>
-        </div>
-      ))}
+    <>
+    <div className='mt-20 pt-10'>
+    <div className='w-2/3 m-auto'>
+    <h1 className='font-bold text-3xl text-center text-sky-500'>Posts</h1>
+    <hr />
+    {
+      posts.map(({ slug, frontmatter }) => {
+        return <Post title={frontmatter.title} link={"/posts/" + slug} date={frontmatter.date} desc={frontmatter.metaDesc} tags={frontmatter.tags} perc={150} tagperc={80} />
+      })
+    }
     </div>
-  );
+    </div>
+    </>
+  )
 }
 
 export async function getStaticProps() {
