@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import Script from 'next/script';
 import hljs from 'highlight.js';
 
-function Project({ title, link, date, desc, perc=100 })
+function Project({ title, link, date, desc, perc=100 }: any)
 {
   return (
     <a href={link}>
