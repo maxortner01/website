@@ -244,10 +244,10 @@ export default function Index({ posts, resume, code }) {
         <title>Max Ortner</title>
         <link rel="stylesheet" href="/agate.css" />
       </Head>
-      <Script
+      <Script id="chart-script"
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
       </Script>
-      <Script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></Script>
+      <Script id="highlight-script" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></Script>
       
       <div className='bg-slate-200 pt-40 pb-40 bg-cover bg-[url("/background.png")]'>
       <div className='w-2/3 m-auto'>
@@ -277,7 +277,7 @@ export default function Index({ posts, resume, code }) {
         </div>
         <div className='transition duration-1000 delay-[550ms] translate-y-6 opacity-0'>
           <h1 className='text-[97%] text-gray-700 font-medium'>My Direction</h1>
-          <p className='text-[90%] text-gray-600'>I am ready to use my many aquired skills in a constructive and creative environment. If there's one thing that characterizes my learning, it is persitence. I believe that persitence is the true key to unlocking profound understanding.</p>
+          <p className='text-[90%] text-gray-600'>I am ready to use my many aquired skills in a constructive and creative environment. If there&apos;s one thing that characterizes my learning, it is persitence. I believe that persitence is the true key to unlocking profound understanding.</p>
         </div>
       </div>
 

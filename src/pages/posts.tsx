@@ -55,7 +55,7 @@ export default function Posts({ posts }: any) {
     <hr />
     {
       posts.map(({ slug, frontmatter }) => {
-        return <Post title={frontmatter.title} link={"/posts/" + slug} date={frontmatter.date} desc={frontmatter.metaDesc} tags={frontmatter.tags} perc={150} tagperc={80} />
+        return <Post key={slug} title={frontmatter.title} link={"/posts/" + slug} date={frontmatter.date} desc={frontmatter.metaDesc} tags={frontmatter.tags} perc={150} tagperc={80} />
       })
     }
     </div>
