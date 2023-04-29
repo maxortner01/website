@@ -26,7 +26,7 @@ function Project({ title, link, date, desc, perc=100 }: any)
   )
 }
 
-function Repo({ repo })
+function Repo({ repo }: any)
 {
   return (
     <a href={repo.html_url}>
@@ -38,7 +38,7 @@ function Repo({ repo })
   )
 }
 
-function Repos({ repos })
+function Repos({ repos }: any)
 {
   return (
     <>
@@ -52,7 +52,7 @@ function Repos({ repos })
   )
 }
 
-function GitHub({ repos })
+function GitHub({ repos }: any)
 {
   const [github, setGitHub] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -107,7 +107,7 @@ function GitHub({ repos })
   )
 }
 
-function PieChart({ data })
+function PieChart({ data }: any)
 {
   useEffect(() => 
   {
@@ -218,7 +218,7 @@ function LanguageBreakdown()
 //list of repos: https://api.github.com/users/maxortner01/repos
 //language breakdown of repo: https://api.github.com/repos/maxortner01/cpp2d/languages
 
-export default function Index({ posts, resume, code }) {
+export default function Index({ posts, resume, code }: any) {
   posts = posts.filter((i) => i.slug != ".DS_Store");
 
   function onLoad()
