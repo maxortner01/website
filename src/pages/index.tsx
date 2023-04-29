@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import Head from 'next/head';
-import Chart from "chart.js";
+import Chart, { ChartDataSets } from "chart.js";
 import md from 'markdown-it';
 
 import fs from 'fs';
@@ -114,9 +114,15 @@ function PieChart({ data }: any)
     const myChart = new Chart("myChart", {
       type: "doughnut",
       data: {
-        labels: Object.keys(data).sort((i, j) => data[i] < data[j]),
+        labels: Object.keys(data).sort((i, j) => {
+          if (data[i] < data[j]) return 1;
+          else return -1;
+        }),
         datasets: [{
-          data: Object.values(data).sort((i, j) => i < j),
+          data: (Object.values(data) as number[]).sort((i, j) => {
+            if (i < j) return 1;
+            else return -1;
+          }),
           backgroundColor: [
             'rgb(11, 36, 71)',
             'rgb(25, 55, 109)',
@@ -124,8 +130,7 @@ function PieChart({ data }: any)
             'rgb(95, 170, 200)',
             'rgb(140, 190, 212)',
             'rgb(165, 215, 232)'
-          ],
-          hoverOffset: 4
+          ]
         }]
       },
       options: {
@@ -144,7 +149,7 @@ function PieChart({ data }: any)
 
 function LanguageBreakdown()
 {
-  const [langs, setLangs] = useState({});
+  const [langs, setLangs]: any = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() =>
@@ -154,8 +159,8 @@ function LanguageBreakdown()
       const repos_json = await user_repos.json();
 
       const exclude = ["HTML", "TeX", "CSS", "Makefile", "Shell", "TypeScript", "JavaScript"]
-      const languages = {}
-      const language_urls = repos_json.map((i) => i.languages_url);
+      const languages: any = {}
+      const language_urls = repos_json.map((i: any) => i.languages_url);
       for (var i = 0; i < language_urls.length; i++)
       {
         const lang = await fetch(language_urls[i]);
@@ -190,7 +195,10 @@ function LanguageBreakdown()
         <table>
           <tbody>
           {
-            Object.keys(langs).sort((i, j) => langs[i] < langs[j]).map((lang) => {
+            Object.keys(langs).sort((i: string, j: string) => {
+              if (langs[i] < langs[j]) return 1;
+              else return -1;
+            }).map((lang: string) => {
               const ratio = Math.sqrt(langs[lang] / langs["C++"])
               var width = (ratio * 500.0).toFixed(0).toString();
               //width = width.substring(0, width.length - 1);
@@ -219,19 +227,30 @@ function LanguageBreakdown()
 //language breakdown of repo: https://api.github.com/repos/maxortner01/cpp2d/languages
 
 export default function Index({ posts, resume, code }: any) {
-  posts = posts.filter((i) => i.slug != ".DS_Store");
+  posts = posts.filter((i: any) => i.slug != ".DS_Store");
 
   function onLoad()
   {
-    document.getElementById("centerobj").classList.replace("translate-y-20", "translate-y-0");
-    document.getElementById("centerobj").classList.replace("opacity-0", "opacity-100");
+    document.getElementById("centerobj")?.classList.replace("translate-y-20", "translate-y-0");
+    document.getElementById("centerobj")?.classList.replace("opacity-0", "opacity-100");
     
-    var children = Array.from(document.getElementById("cards")?.children);
-    children.forEach((child) => child.classList.replace("translate-y-6", "translate-y-0"));
-    children.forEach((child) => child.classList.replace("opacity-0", "opacity-100"));
+    var children = [];
+    
+    var cards = document.getElementById("cards");
 
-    children = Array.from(document.getElementById("info-block")?.children);
-    children.forEach((child) => child.classList.remove("translate-x-10", "opacity-0"));
+    if (cards)
+    {
+      children = Array.from(cards.children);
+      children.forEach((child) => child.classList.replace("translate-y-6", "translate-y-0"));
+      children.forEach((child) => child.classList.replace("opacity-0", "opacity-100"));
+    }
+
+    var info = document.getElementById("info-block")
+
+    if (info){
+      children = Array.from(info.children);
+      children.forEach((child) => child.classList.remove("translate-x-10", "opacity-0"));
+    }
   }
 
   useEffect(() => {
@@ -324,7 +343,7 @@ export default function Index({ posts, resume, code }: any) {
           <h1 className='font-bold text-2xl'>Latest Posts</h1>
           <hr/>
           {
-            posts.slice(0, 3).map(({slug, frontmatter}) => {
+            posts.slice(0, 3).map(({slug, frontmatter}: any) => {
               return <Post key={frontmatter.title} link={"/posts/" + slug} title={frontmatter.title} date={frontmatter.date} desc={frontmatter.metaDesc} tags={frontmatter.tags} />
             })
           }
@@ -369,7 +388,7 @@ export async function getStaticProps() {
     const readFile = fs.readFileSync(`./src/code/${fileName}`, 'utf-8');
     const { data: frontmatter, content } = matter(readFile);
 
-    var info = {}
+    var info: any = {}
     info[fileName.split(".")[0]] = content;
 
     return info;
