@@ -69,7 +69,7 @@ export default function Resume({ resume })
                         <h2 className="text-[100%] print:text-[80%] text-gray-400"><i>Computer Scientist, Mathematics, Physicist</i></h2>
                     </div>
                     <div>
-                        <Image className="rounded-full border-gray-600 border-2 shadow-lg" src="/image3.png" width={100} height={100}/>
+                        <Image alt="" className="rounded-full border-gray-600 border-2 shadow-lg" src="/image3.png" width={100} height={100}/>
                     </div>
                 </div>
 

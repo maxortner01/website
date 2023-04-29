@@ -43,8 +43,6 @@ function Post({ frontmatter, content })
 
   return (
     <div className='prose prose prose-p:text-justify prose-img:w-96 prose-img:m-auto mx-auto'>
-    <link rel="stylesheet" href="/equations.css"></link>
-    <link rel="stylesheet" href="/agate.css" />
     <Script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" />
       <Script id="configure" dangerouslySetInnerHTML={{
       __html: `MathJax = {
@@ -56,7 +54,6 @@ function Post({ frontmatter, content })
           }
         };`,
     }}></Script>
-      <Script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></Script>
       <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></Script>
       <title>{frontmatter.title}</title>
       <h1 className="text-center">{frontmatter.title}</h1>

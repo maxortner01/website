@@ -75,7 +75,7 @@ function GitHub({ repos })
     }
 
     fetchData().catch(console.error);
-  }, [])
+  }, [repos])
 
   return (
     <>
@@ -96,7 +96,7 @@ function GitHub({ repos })
             </p>
           </div>
           <div className='rounded-full overflow-hidden border-2 border-sky-400 shadow-md h-full'>
-            <Image src={github.user.avatar_url} width={95} height={95} />
+            <Image src={github.user.avatar_url} width={95} height={95} alt='' />
           </div>
         </div>
         </a>
@@ -134,7 +134,7 @@ function PieChart({ data })
         }
       }
     });
-  }, []);
+  }, [data]);
 
   return (<div>
     <canvas height={"200px"} id="myChart"></canvas>
@@ -257,7 +257,7 @@ export default function Index({ posts, resume, code }) {
           <h2 className='font-light text-sky-200'><p className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.6)]"><i>I am a <span className='font-medium'>computer scientist</span>, <span className="font-medium">mathematician</span>, and <span className="font-medium">physicist</span>.</i></p></h2>
         </div>
         <div>
-        <Image className="rounded-full border-sky-500 border-2 shadow-md" src="/image3.png" width={100} height={100}/>
+        <Image alt='' className="rounded-full border-sky-500 border-2 shadow-md" src="/image3.png" width={100} height={100}/>
         </div>
       </div>
       </div>
@@ -287,7 +287,7 @@ export default function Index({ posts, resume, code }) {
           <div className='grid grid-cols-5'>
             <div className='col-span-2 p-4 flex flex-col'>
               <div className='flex-grow'/>
-              <Image src="/page.png" width={450} height={450} className='m-auto' />
+              <Image alt='' src="/page.png" width={450} height={450} className='m-auto' />
               <div className='flex-grow'/>
             </div>
             <div className='col-span-2 p-4 flex flex-col'>
