@@ -45,7 +45,7 @@ function Repos({ repos }: any)
     <h1>Pinned Repos</h1>
     <div className='flex flex-col divide-y-[1px] border-t-[1px]'>
     {
-      repos.map((r) => <Repo key={r.name} repo={r} />)
+      repos.map((r: any) => <Repo key={r.name} repo={r} />)
     }
     </div>
     </>
@@ -54,18 +54,18 @@ function Repos({ repos }: any)
 
 function GitHub({ repos }: any)
 {
-  const [github, setGitHub] = useState([]);
+  const [github, setGitHub]: any = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() =>
   {
     const fetchData = async () => {
-      const final_data = {};
+      const final_data: any = {};
       const data = await fetch("https://api.github.com/users/maxortner01");
       const user_repos = await fetch("https://api.github.com/users/maxortner01/repos");
 
       const repos_json = await user_repos.json();
-      const repos_list = repos_json.filter((repo) => repos.includes(repo.name)).sort((i, j) => repos.indexOf(i.name) > repos.indexOf(j.name));
+      const repos_list = repos_json.filter((repo: any) => repos.includes(repo.name)).sort((i: any, j: any) => repos.indexOf(i.name) > repos.indexOf(j.name));
 
       final_data["user"] = await data.json();
       final_data["repos"] = repos_list
