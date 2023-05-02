@@ -42,7 +42,7 @@ function Post({ frontmatter, content })
   }, []);
 
   return (
-    <div className='prose prose-p:text-justify prose-img:w-96 prose-img:m-auto mx-auto'>
+    <div className='prose prose-md prose-p:text-justify prose-img:w-96 prose-img:m-auto prose-pre:bg-gray-50 prose-pre:border prose-pre:shadow-inner prose-pre:overflow-scroll mx-auto'>
     <Script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" />
       <Script id="configure" dangerouslySetInnerHTML={{
       __html: `MathJax = {
