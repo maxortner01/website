@@ -68,7 +68,6 @@ export default function Posts({ posts, resume }: any) {
   var oneDay = 1000 * 60 * 60 * 24;
   var day = Math.floor(diff / oneDay);
   var quote = resume.quotes[day % (resume.quotes.length)];
-  console.log(quote);
 
   return (
     <div>
