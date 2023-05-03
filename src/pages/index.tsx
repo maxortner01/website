@@ -59,6 +59,7 @@ function Repos({ repos }: any)
   )
 }
 
+/*
 function GitHub({ repos }: any)
 {
   const [code, setCode] = useState(0);
@@ -233,7 +234,7 @@ function LanguageBreakdown()
   }
   </div>
   );
-}
+}*/
 
 //user info: https://api.github.com/users/maxortner01
 // language info at repo.languages_url
@@ -349,13 +350,11 @@ export default function Index({ posts, resume, code }: any) {
         </div>
       </div>
 
-      <div className='bg-slate-100 pt-2 pb-2'>
-        <LanguageBreakdown />
-      </div>
 
+      <div className='border-t-[1px]'>
       <div className='w-3/4 m-auto z-20 max-w-[1200px]'>
       <div className='space-y-4 lg:grid lg:grid-cols-2 mt-4 mb-4 gap-2'>
-        <div className='p-4'>
+        <div className='p-4 lg:col-span-2'>
           <h1 className='font-bold text-2xl'>Latest Posts</h1>
           <hr/>
           {
@@ -365,11 +364,16 @@ export default function Index({ posts, resume, code }: any) {
           }
           <PostFrame link={"/posts"} className='text-center text-gray-500 hover:text-sky-500'>View more posts...</PostFrame>
         </div>
-        <GitHub repos={resume.pinned_repos} />
+      </div>
       </div>
       </div>
     </div>
   );
+  /*
+      <div className='bg-slate-100 pt-2 pb-2'>
+        <LanguageBreakdown />
+      </div>
+        <GitHub repos={resume.pinned_repos} />*/
 }
 
 export async function getStaticProps() {
