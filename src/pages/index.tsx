@@ -14,7 +14,7 @@ import hljs from 'highlight.js';
 function GitHubStatusBad()
 {
   return (
-    <p className='text-gray-500 text-[80%] text-center'><i>My cool graphics aren't showing because GitHub is complaining about too many requests right now... For now, just <a className='underline' href="https://www.github.com/maxortner01">check out my GitHub page.</a></i></p>
+    <p className='text-gray-500 text-[80%] text-center'><i>My cool graphics aren&apos;t showing because GitHub is complaining about too many requests right now... For now, just <a className='underline' href="https://www.github.com/maxortner01">check out my GitHub page.</a></i></p>
   )
 }
 
