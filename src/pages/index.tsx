@@ -185,7 +185,7 @@ function LanguageBreakdown()
   }, [])
 
   return (
-  <div className='w-3/4 m-auto p-4'>
+  <div className='w-3/4 m-auto p-4 max-w-[1200px] overflow-x-scroll'>
   {
     loading?<>Loading</>:
     <div className='flex flex-row'>
@@ -269,7 +269,7 @@ export default function Index({ posts, resume, code }: any) {
       
       <div className='bg-slate-200 pt-40 pb-40 bg-cover bg-[url("/background.png")]'>
       <div className='w-2/3 m-auto'>
-      <div id="centerobj" className='transition-all duration-[2000ms] flex flex-row w-3/4 m-auto rounded-3xl border-2 border-sky-500 p-6 bg-white/40 backdrop-blur-lg shadow-lg select-none cursor-default translate-y-20 opacity-0'>
+      <div id="centerobj" className='max-w-[700px] min-w-[400px] transition-all duration-[2000ms] flex flex-row w-3/4 m-auto rounded-3xl border-2 border-sky-500 p-6 bg-white/40 backdrop-blur-lg shadow-lg select-none cursor-default translate-y-20 opacity-0'>
         <div className='flex-grow pt-4'>
           <h1 className='font-bold text-3xl text-white'><p className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.7)]">Welcome to my Website.</p></h1>
           <h2 className='font-light text-sky-200'><p className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.6)]"><i>I am a <span className='font-medium'>computer scientist</span>, <span className="font-medium">mathematician</span>, and <span className="font-medium">physicist</span>.</i></p></h2>
@@ -281,7 +281,7 @@ export default function Index({ posts, resume, code }: any) {
       </div>
       </div>
       
-      <div id="cards" className='w-3/4 m-auto p-4 grid grid-cols-3 gap-8'>
+      <div id="cards" className='w-3/4 m-auto p-4 flex-col space-y-4 lg:grid lg:grid-cols-3 gap-8 max-w-[1200px]'>
         <div className='transition duration-1000 delay-[100ms] col-span-3 text-center opacity-0 translate-y-6 text-gray-500'>
           Currently I am <span className='font-medium text-gray-600'><i>{resume.status}</i></span>.
         </div>
@@ -300,15 +300,15 @@ export default function Index({ posts, resume, code }: any) {
       </div>
 
       <div className='border-t-[1px]'>
-        <div className='w-5/6 m-auto'>
+        <div className='w-5/6 m-auto max-w-[1400px]'>
           <h1 className='text-[125%] p-2 font-bold text-gray-600 text-center'>Functionality Spotlight: <a href="https://www.github.com/maxortner01/cpp2d"><span className='font-medium text-sky-400 underline'>cpp2d</span></a></h1>
-          <div className='grid grid-cols-5'>
-            <div className='col-span-2 p-4 flex flex-col'>
+          <div className='lg:grid lg:grid-cols-5'>
+            <div className='lg:col-span-2 p-4 flex flex-col'>
               <div className='flex-grow'/>
               <Image alt='' src="/page.png" width={450} height={450} className='m-auto' />
               <div className='flex-grow'/>
             </div>
-            <div className='col-span-2 p-4 flex flex-col'>
+            <div className='lg:col-span-2 p-4 flex flex-col'>
               <div className='flex-grow'/>
               <div className='rounded-lg shadow-inner bg-gray-50 p-2 text-[70%] overflow-scroll'>
                 <div dangerouslySetInnerHTML={{ __html: md().render(code[0].test1) }} />
@@ -337,8 +337,8 @@ export default function Index({ posts, resume, code }: any) {
         <LanguageBreakdown />
       </div>
 
-      <div className='w-3/4 m-auto z-20'>
-      <div className='grid grid-cols-2 mt-4 mb-4 gap-2'>
+      <div className='w-3/4 m-auto z-20 max-w-[1200px]'>
+      <div className='space-y-4 lg:grid lg:grid-cols-2 mt-4 mb-4 gap-2'>
         <div className='p-4'>
           <h1 className='font-bold text-2xl'>Latest Posts</h1>
           <hr/>

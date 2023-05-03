@@ -66,8 +66,8 @@ export default function Resume({ resume }: any)
     return (
         <>
         <title>Resume</title>
-        <div onLoad={onLoad} className="w-[66%] m-auto flex flex-row my-20 font-sans-serif print:w-[90%] cursor-default">
-            <div className="w-[66%] p-6">
+        <div onLoad={onLoad} className="lg:w-[66%] m-auto lg:flex lg:flex-row my-20 font-sans-serif print:w-[90%] cursor-default">
+            <div className="m-4 lg:w-[66%] p-6">
                 <div className="flex flex-row">
                     <div className="flex-grow mt-2">
                         <h1 className="text-[220%] print:text-[165%] font-extrabold">Max Ortner</h1>
@@ -115,7 +115,7 @@ export default function Resume({ resume }: any)
                 </div>
 
             </div>
-            <div className="w-[33%] bg-sky-50 rounded-lg shadow-md border p-6">
+            <div className="m-4 lg:w-[33%] bg-sky-50 rounded-lg shadow-md border p-6">
                 <h1 className="text-sky-500 text-[100%] print:text-[70%] font-extrabold">Contact</h1>
                 <hr className="pt-2 mb-2" />
                 <div className="flex flex-col text-gray-500 text-[80%] print:text-[50%]">
