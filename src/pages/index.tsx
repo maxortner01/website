@@ -11,6 +11,13 @@ import { useEffect, useState } from 'react';
 import Script from 'next/script';
 import hljs from 'highlight.js';
 
+function GitHubStatusBad()
+{
+  return (
+    <p className='text-gray-500 text-[80%] text-center'><i>My cool graphics aren't showing because GitHub is complaining about too many requests right now... For now, just <a className='underline' href="https://www.github.com/maxortner01">check out my GitHub page.</a></i></p>
+  )
+}
+
 function Project({ title, link, date, desc, perc=100 }: any)
 {
   return (
@@ -54,6 +61,7 @@ function Repos({ repos }: any)
 
 function GitHub({ repos }: any)
 {
+  const [code, setCode] = useState(0);
   const [github, setGitHub]: any = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -62,6 +70,8 @@ function GitHub({ repos }: any)
     const fetchData = async () => {
       const final_data: any = {};
       const data = await fetch("https://api.github.com/users/maxortner01");
+
+      setCode(data.status);
       const user_repos = await fetch("https://api.github.com/users/maxortner01/repos");
 
       const repos_json = await user_repos.json();
@@ -80,7 +90,8 @@ function GitHub({ repos }: any)
   return (
     <>
     {
-      loading?<>Loading</>:
+      loading && !code?<>Loading</>:
+      code == 200?(
       <div className='rounded-2xl p-4 border shadow-md bg-sky-50'>
         <h1 className='font-bold text-2xl'>Github Profile</h1>
         <hr className='mb-2' />
@@ -101,7 +112,7 @@ function GitHub({ repos }: any)
         </div>
         </a>
         <Repos repos={github.repos} />
-      </div>
+      </div>):<div className='m-auto rounded-lg border p-2 shadow-md'><GitHubStatusBad/></div>
     }
     </>
   )
@@ -149,6 +160,7 @@ function PieChart({ data }: any)
 
 function LanguageBreakdown()
 {
+  const [code, setCode] = useState(0);
   const [langs, setLangs]: any = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -156,6 +168,7 @@ function LanguageBreakdown()
   {
     const fetchData = async () => {
       const user_repos = await fetch("https://api.github.com/users/maxortner01/repos");
+      setCode(user_repos.status);
       const repos_json = await user_repos.json();
 
       const exclude = ["HTML", "TeX", "CSS", "Makefile", "Shell", "TypeScript", "JavaScript"]
@@ -187,7 +200,8 @@ function LanguageBreakdown()
   return (
   <div className='w-3/4 m-auto p-4 max-w-[1200px] overflow-x-scroll'>
   {
-    loading?<>Loading</>:
+    loading&&!code?<>Loading</>:
+    code == 200?(
     <div className='flex flex-row'>
       <div><PieChart data={langs} /></div>
       <div className='ml-20'>
@@ -215,7 +229,7 @@ function LanguageBreakdown()
           </tbody>
         </table>
       </div>
-    </div>
+    </div>):<GitHubStatusBad/>
   }
   </div>
   );
@@ -269,13 +283,15 @@ export default function Index({ posts, resume, code }: any) {
       
       <div className='bg-slate-200 pt-40 pb-40 bg-cover bg-[url("/background.png")]'>
       <div className='w-2/3 m-auto'>
-      <div id="centerobj" className='max-w-[700px] min-w-[400px] transition-all duration-[2000ms] flex flex-row w-3/4 m-auto rounded-3xl border-2 border-sky-500 p-6 bg-white/40 backdrop-blur-lg shadow-lg select-none cursor-default translate-y-20 opacity-0'>
+      <div id="centerobj" className='max-w-[700px] min-w-[300px] transition-all duration-[2000ms] flex flex-col lg:flex-row w-3/4 m-auto rounded-3xl border-2 border-sky-500 p-6 bg-white/40 backdrop-blur-lg shadow-lg select-none cursor-default translate-y-20 opacity-0'>
         <div className='flex-grow pt-4'>
-          <h1 className='font-bold text-3xl text-white'><p className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.7)]">Welcome to my Website.</p></h1>
-          <h2 className='font-light text-sky-200'><p className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.6)]"><i>I am a <span className='font-medium'>computer scientist</span>, <span className="font-medium">mathematician</span>, and <span className="font-medium">physicist</span>.</i></p></h2>
+          <h1 className='font-bold text-center lg:text-left text-3xl text-white'><p className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.7)]">Welcome to my Website.</p></h1>
+          <h2 className='font-light text-center lg:text-left text-sky-200'><p className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.6)]"><i>I am a <span className='font-medium'>computer scientist</span>, <span className="font-medium">mathematician</span>, and <span className="font-medium">physicist</span>.</i></p></h2>
         </div>
-        <div>
+        <div className='flex flex-row pt-2'>
+          <div className='flex-grow'/>
         <Image alt='' className="rounded-full border-sky-500 border-2 shadow-md" src="/image3.png" width={100} height={100}/>
+          <div className='flex-grow'/>
         </div>
       </div>
       </div>
