@@ -1,5 +1,21 @@
 {
     "status": "looking for work with C++",
+    "quotes": [
+        {
+            "quote": "As far as the laws of mathematics refer to reality, they are not certain; and as far as they are certain, they do not refer to reality.",
+            "lines": [
+                "Albert Einstein",
+                "Geometry and Experience, 1931"
+            ]
+        },
+        {
+            "quote": "Perhaps too we shall have to construct an entirely new mechanics, which we can only just get a glimpse of, where, the inertia increasing with the velocity, the velocity of light would be a limit beyond which it would be impossible to go.",
+            "lines": [
+                "Henri Poincaire",
+                "1904 (the year relativity was discovered)"
+            ]
+        }
+    ],
     "pinned_repos": [
         "cpp2d", "SGAL", "ck2-Save-Parser", "ansel", "simple-compiler-utility"
     ],
