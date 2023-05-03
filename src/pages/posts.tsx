@@ -80,7 +80,7 @@ export default function Posts({ posts, resume }: any) {
                 <span className='font-medium'>I usually spend my time learning</span> new concepts in math or physics, or playing around with some of my development projects.
               </p>
               <p>
-                When I'm excited about a new concept, or come up with something I like, I will share it here.
+                When I&apos;m excited about a new concept, or come up with something I like, I will share it here.
               </p>
               <p>
                 Read something you want to ask me about? <a className='underline text-sky-500 font-medium' href="mailto:contact@maxortner.com">Contact me!</a>
@@ -89,7 +89,7 @@ export default function Posts({ posts, resume }: any) {
             <div className='rounded-lg border shadow-md bg-sky-50 m-2 p-4'>
               <h1 className='text-[105%] text-gray-600 font-medium text-center'>Quote of the Day</h1>
               <p className='text-[90%] text-gray-500'>
-                "{quote.quote}"
+                &quot;{quote.quote}&quot;
               </p>
               <div className='text-[80%] text-gray-500 font-light text-right'>
                 {
