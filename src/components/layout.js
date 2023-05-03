@@ -13,7 +13,7 @@ function NavBarButton({ text, directory, className })
 export default function Layout({ children }) {
   return (
     <div className='font-sans-serif'>
-    <div className='z-20 min-w-[400px] flex flex-row border-2 border-sky-400 fixed top-4 left-[50%] -translate-x-[50%] backdrop-blur-sm bg-white/40 shadow-md text-lg rounded-lg overflow-hidden'>
+    <div className='z-20 min-w-[375px] flex flex-row border-2 border-sky-400 fixed top-4 left-[50%] -translate-x-[50%] backdrop-blur-sm bg-white/40 shadow-md text-lg rounded-lg overflow-hidden'>
         <Link className='min-w-[100px]' href="/"><NavBarButton text={"Max Ortner"} className={"font-medium text-sky-500 mr-4"} /></Link>
         <div className='overflow-x-scroll flex flex-row space-x-4 m-auto'>
           <Link href="/posts"><NavBarButton text={"Posts"}   className={"font-light text-black text-opacity-60"} /></Link>
