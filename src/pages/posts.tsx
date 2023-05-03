@@ -51,7 +51,7 @@ export default function Posts({ posts }: any) {
     <>
     <title>Max Ortner - Posts</title>
     <div className='mt-20 pt-10'>
-    <div className='w-2/3 m-auto'>
+    <div className='max-w-[900px] w-2/3 m-auto'>
     <h1 className='font-bold text-3xl text-center text-sky-500'>Posts</h1>
     <hr />
     {

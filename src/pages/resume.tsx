@@ -66,7 +66,7 @@ export default function Resume({ resume }: any)
     return (
         <>
         <title>Resume</title>
-        <div onLoad={onLoad} className="lg:w-[66%] m-auto lg:flex lg:flex-row my-20 font-sans-serif print:w-[90%] cursor-default">
+        <div onLoad={onLoad} className="lg:w-[66%] max-w-[950px] m-auto lg:flex lg:flex-row my-20 font-sans-serif print:w-[90%] cursor-default">
             <div className="m-4 lg:w-[66%] p-6">
                 <div className="flex flex-row">
                     <div className="flex-grow mt-2">
