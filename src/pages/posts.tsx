@@ -102,7 +102,7 @@ export default function Posts({ posts, resume }: any) {
             </div>
           </div>
           <div className='lg:col-span-2'>
-            <h1 className='font-bold text-3xl text-center text-sky-500'>Posts</h1>
+            <h1 className='font-bold text-3xl text-center text-sky-500 lg:mt-0 mt-6'>Posts</h1>
             <hr />
             <div id="container">
             {
