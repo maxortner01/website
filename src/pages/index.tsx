@@ -359,7 +359,7 @@ export default function Index({ posts, resume, code }: any) {
           <hr/>
           {
             posts.slice(0, 3).map(({slug, frontmatter}: any) => {
-              return <Post key={frontmatter.title} link={"/posts/" + slug} title={frontmatter.title} date={frontmatter.date} desc={frontmatter.metaDesc} tags={frontmatter.tags} />
+              return <Post key={frontmatter.title} selected_tags={[]} link={"/posts/" + slug} title={frontmatter.title} date={frontmatter.date} desc={frontmatter.metaDesc} tags={frontmatter.tags} />
             })
           }
           <PostFrame link={"/posts"} className='text-center text-gray-500 hover:text-sky-500'>View more posts...</PostFrame>
