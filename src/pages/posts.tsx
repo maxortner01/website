@@ -76,8 +76,8 @@ export function Post({ title, link, date, desc, tags, selected_tags, perc=100, t
             if (selected_tags.includes(tag1)) return -1
             else return 1;
             
-          }).map((tag: any) => {
-            return <Tag key={tag} name={tag} selected_tags={selected_tags} perc={tagperc} />
+          }).map((tag: any, index: number) => {
+            return <Tag className={(index == 0?"ml-2":"")} key={tag} name={tag} selected_tags={selected_tags} perc={tagperc} />
           })
         }
       </div>
@@ -136,7 +136,7 @@ export default function Posts({ posts, resume }: any) {
   if (search.length > 0)
   {
     posts = posts.filter((post: any) => {
-      return post.frontmatter.title.toLowerCase().includes(search);
+      return post.frontmatter.title.toLowerCase().includes(search.toLowerCase());
     });
   }
 
@@ -192,7 +192,7 @@ export default function Posts({ posts, resume }: any) {
               <h1 className='lg:flex-grow font-bold text-3xl text-sky-500 lg:mt-0 mt-6'>Posts</h1>
               <div className='flex flex-row space-x-2 group-focus:border-b-2'>
                 <span className="scale-70 material-symbols-outlined text-gray-400">search</span>
-                <div className='lg:-translate-y-[1px]'><input placeholder='Search' className='outline-none text-[105%] focus:border-b-2 text-gray-500 pb-[1px]' value={search} onChange={(e: any) => setSearch(e.target.value)}/></div>
+                <div className='lg:-translate-y-[1px]'><input placeholder='Search' type='search' className='outline-none text-[105%] focus:border-b-2 text-gray-500 pb-[1px]' value={search} onChange={(e: any) => setSearch(e.target.value)}/></div>
               </div>
             </div>
             <hr />
