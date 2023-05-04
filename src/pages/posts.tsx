@@ -153,9 +153,6 @@ export default function Posts({ posts, resume }: any) {
 
   return (
     <div>
-      <Head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,200" />
-      </Head>
       <title>Max Ortner - Posts</title>
       <div className='mt-20 pt-10'>
         <div className='lg:grid lg:grid-cols-3 max-w-[1000px] w-2/3 m-auto gap-2'>
@@ -207,7 +204,7 @@ export default function Posts({ posts, resume }: any) {
                   <div key={slug} className={" duration-1000 delay-[" + (100 + index * 300).toFixed(0) + "ms]"}>
                     <Post selected_tags={tags} title={frontmatter.title} link={"/posts/" + slug} date={frontmatter.date} desc={frontmatter.metaDesc} tags={frontmatter.tags} perc={150} tagperc={80} />
                   </div>);
-              })):<p className='text-xl text-gray-600 text-center p-8'>There aren't any posts... <a className='text-sky-400 font-medium' href="/posts">Clear the filter?</a></p>
+              })):<p className='text-xl text-gray-600 text-center p-8'>There aren&apos;t any posts... <Link className='text-sky-400 font-medium' href="/posts">Clear the filter?</Link></p>
             }
             </div>
           </div>
