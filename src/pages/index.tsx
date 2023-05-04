@@ -244,8 +244,9 @@ function LanguageBreakdown()
 export default function Index({ posts, resume, code }: any) {
   posts = posts.filter((i: any) => i.slug != ".DS_Store");
 
-  function onLoad()
-  {
+  useEffect(() => {
+    hljs.highlightAll();
+
     document.getElementById("centerobj")?.classList.replace("translate-y-20", "translate-y-0");
     document.getElementById("centerobj")?.classList.replace("opacity-0", "opacity-100");
     
@@ -266,14 +267,10 @@ export default function Index({ posts, resume, code }: any) {
       children = Array.from(info.children);
       children.forEach((child) => child.classList.remove("translate-x-10", "opacity-0"));
     }
-  }
-
-  useEffect(() => {
-    hljs.highlightAll();
   }, [])
   
   return (
-    <div onLoad={onLoad}>
+    <div>
       <Head>
         <title>Max Ortner</title>
       </Head>
