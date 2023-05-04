@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import fs from 'fs';
 import { language } from "gray-matter";
+import { useEffect } from "react";
 
 function WorkCard({title, location, desc, date, className}: any)
 {
@@ -43,7 +44,7 @@ function Education({ college, creditial, data }: any)
 
 export default function Resume({ resume }: any)
 {
-    function onLoad()
+    useEffect(() =>
     {
         var contain = document.getElementById("work-contain");
         var children = []
@@ -61,12 +62,12 @@ export default function Resume({ resume }: any)
             children.forEach((child) => child.classList.replace("translate-y-6", "translate-y-0"));
             children.forEach((child) => child.classList.replace("opacity-0", "opacity-100"));
         }
-    }
+    }, [])
 
     return (
         <>
         <title>Resume</title>
-        <div onLoad={onLoad} className="lg:w-[66%] max-w-[950px] m-auto lg:flex lg:flex-row my-20 font-sans-serif print:w-[90%] cursor-default">
+        <div className="lg:w-[66%] max-w-[950px] m-auto lg:flex lg:flex-row my-20 font-sans-serif print:w-[90%] cursor-default">
             <div className="m-4 lg:w-[66%] p-6">
                 <div className="flex flex-row">
                     <div className="flex-grow mt-2">
