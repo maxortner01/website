@@ -114,8 +114,18 @@
                 "level": "significant"
             },
             {
+                "type": "language",
+                "name": "C#",
+                "level": "significant"
+            },
+            {
                 "type": "framework",
                 "name": "OpenGL",
+                "level": "significant"
+            },
+            {
+                "type": "framework",
+                "name": "Vulkan",
                 "level": "significant"
             },
             {
@@ -155,12 +165,12 @@
             },
             {
                 "type": "language",
-                "name": "Julia",
+                "name": "ASP.NET",
                 "level": "other"
             },
             {
-                "type": "framework",
-                "name": "Vulkan",
+                "type": "language",
+                "name": "Julia",
                 "level": "other"
             },
             {
