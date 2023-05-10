@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 import Chart, { ChartDataSets } from "chart.js";
 import md from 'markdown-it';
+import Link from 'next/link';
 
 import fs from 'fs';
 import matter, { language } from 'gray-matter';
@@ -390,8 +391,8 @@ export default function Index({ posts, resume, code }: any) {
 
       <div className='border-t-[1px]'>
         <div className='w-5/6 m-auto max-w-[1600px]'>
-          <h1 className='text-[125%] p-2 font-bold text-gray-600 text-center'>Active Project: <a href="https://www.github.com/maxortner01/cpp2d"><span className='font-medium text-sky-400 underline'>cpp2d</span></a></h1>
-          <div className='w-3/4 m-auto mb-4'><p className='ml-2 text-gray-500 text-[90%] text-center'>I have been involved in graphics programming for almost a decade now, initially starting in Java with OpenGL and slowly moving into C++, which I've stayed for the last seven years or so. This passion for graphics has since strengthened and culminated into a passion for performat low-level computing systems. This project utilizes the <span className='font-medium text-gray-600'>Vulkan api, custom memory management, and a lightweight user API</span>. I think there is a key balance that should be struck between a nice user-friendly API and highly performat graphics systems. <a className='underline text-sky-400' href="/posts?tags=cpp2d">Check out the devlogs!</a></p></div>
+          <h1 className='text-[125%] p-2 font-bold text-gray-600 text-center'>Active Project: <Link href="https://www.github.com/maxortner01/cpp2d"><span className='font-medium text-sky-400 underline'>cpp2d</span></Link></h1>
+          <div className='w-3/4 m-auto mb-4'><p className='ml-2 text-gray-500 text-[90%] text-center'>I have been involved in graphics programming for almost a decade now, initially starting in Java with OpenGL and slowly moving into C++, which I&apos;ve stayed for the last seven years or so. This passion for graphics has since strengthened and culminated into a passion for performat low-level computing systems. This project utilizes the <span className='font-medium text-gray-600'>Vulkan api, custom memory management, and a lightweight user API</span>. I think there is a key balance that should be struck between a nice user-friendly API and highly performat graphics systems. <a className='underline text-sky-400' href="/posts?tags=cpp2d">Check out the devlogs!</a></p></div>
           <NewShowy code={code} />
         </div>
       </div>
