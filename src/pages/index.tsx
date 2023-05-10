@@ -15,14 +15,14 @@ import hljs from 'highlight.js';
 function GitHubStatusBad()
 {
   return (
-    <p className='text-gray-500 text-[80%] text-center'><i>My cool graphics aren&apos;t showing because GitHub is complaining about too many requests right now... For now, just <a className='underline' href="https://www.github.com/maxortner01">check out my GitHub page.</a></i></p>
+    <p className='text-gray-500 text-[80%] text-center'><i>My cool graphics aren&apos;t showing because GitHub is complaining about too many requests right now... For now, just <Link className='underline' href="https://www.github.com/maxortner01">check out my GitHub page.</Link></i></p>
   )
 }
 
 function Project({ title, link, date, desc, perc=100 }: any)
 {
   return (
-    <a href={link}>
+    <Link href={link}>
     <div className={'select-none cursor-pointer p-2 hover:bg-sky-100 text-[' + perc.toString() + '%]'}>
       <div className='flex flex-row'>
         <h1 className='flex-grow font-bold text-sky-500'>{title}</h1>
@@ -30,19 +30,19 @@ function Project({ title, link, date, desc, perc=100 }: any)
       </div>
       <p className={'text-gray-500 text-[' + (perc - 15).toString() + '%]'}>{desc}</p>
     </div>
-    </a>
+    </Link>
   )
 }
 
 function Repo({ repo }: any)
 {
   return (
-    <a href={repo.html_url}>
+    <Link href={repo.html_url}>
     <div className='p-2 hover:bg-sky-100'>
       <div className='text-[90%] text-gray-600 font-medium'>{repo.name}</div>
       <div className='text-[85%] text-gray-400'>{repo.description}</div>
     </div>
-    </a>
+    </Link>
   )
 }
 
@@ -97,7 +97,7 @@ function GitHub({ repos }: any)
       <div className='rounded-2xl p-4 border shadow-md bg-sky-50'>
         <h1 className='font-bold text-2xl'>Github Profile</h1>
         <hr className='mb-2' />
-        <a href={github.user.html_url}>
+        <Link href={github.user.html_url}>
         <div className='flex flex-row space-x-4 hover:bg-sky-100 p-2 rounded-lg'>
           <div className='flex-grow'>
             <div className='text-[110%]'>
@@ -112,7 +112,7 @@ function GitHub({ repos }: any)
             <Image src={github.user.avatar_url} width={95} height={95} alt='' />
           </div>
         </div>
-        </a>
+        </Link>
         <Repos repos={github.repos} />
       </div>):<div className='m-auto rounded-lg border p-2 shadow-md'><GitHubStatusBad/></div>
     }
@@ -265,7 +265,7 @@ function Showy({ code }) {
       </div>
       <div className='transition duration-1000 delay-[300ms] translate-x-10 opacity-0'>
         <h1 className='font-medium text-gray-600'>ECS</h1>
-        <p className='text-[80%] text-gray-500'>Using <a className='underline font-light' href="https://github.com/skypjack/entt">ENTT</a>, a memory efficient and fast entity-component system is integrated directly into the engine. As is shown in this example, the user can create their own system and push it into the scene. Then the application takes care of sorting the systems and calling their update functions.</p>
+        <p className='text-[80%] text-gray-500'>Using <Link className='underline font-light' href="https://github.com/skypjack/entt">ENTT</Link>, a memory efficient and fast entity-component system is integrated directly into the engine. As is shown in this example, the user can create their own system and push it into the scene. Then the application takes care of sorting the systems and calling their update functions.</p>
       </div>
       <div className='transition duration-1000 delay-[450ms] translate-x-10 opacity-0'>
         <h1 className='font-medium text-gray-600'>Next Steps</h1>
@@ -392,7 +392,7 @@ export default function Index({ posts, resume, code }: any) {
       <div className='border-t-[1px]'>
         <div className='w-5/6 m-auto max-w-[1600px]'>
           <h1 className='text-[125%] p-2 font-bold text-gray-600 text-center'>Active Project: <Link href="https://www.github.com/maxortner01/cpp2d"><span className='font-medium text-sky-400 underline'>cpp2d</span></Link></h1>
-          <div className='w-3/4 m-auto mb-4'><p className='ml-2 text-gray-500 text-[90%] text-center'>I have been involved in graphics programming for almost a decade now, initially starting in Java with OpenGL and slowly moving into C++, which I&apos;ve stayed for the last seven years or so. This passion for graphics has since strengthened and culminated into a passion for performat low-level computing systems. This project utilizes the <span className='font-medium text-gray-600'>Vulkan api, custom memory management, and a lightweight user API</span>. I think there is a key balance that should be struck between a nice user-friendly API and highly performat graphics systems. <a className='underline text-sky-400' href="/posts?tags=cpp2d">Check out the devlogs!</a></p></div>
+          <div className='w-3/4 m-auto mb-4'><p className='ml-2 text-gray-500 text-[90%] text-center'>I have been involved in graphics programming for almost a decade now, initially starting in Java with OpenGL and slowly moving into C++, which I&apos;ve stayed for the last seven years or so. This passion for graphics has since strengthened and culminated into a passion for performat low-level computing systems. This project utilizes the <span className='font-medium text-gray-600'>Vulkan api, custom memory management, and a lightweight user API</span>. I think there is a key balance that should be struck between a nice user-friendly API and highly performat graphics systems. <Link className='underline text-sky-400' href="/posts?tags=cpp2d">Check out the devlogs!</Link></p></div>
           <NewShowy code={code} />
         </div>
       </div>
