@@ -241,6 +241,77 @@ function LanguageBreakdown()
 //list of repos: https://api.github.com/users/maxortner01/repos
 //language breakdown of repo: https://api.github.com/repos/maxortner01/cpp2d/languages
 
+function Showy({ code }) {
+  return (
+  <div className='lg:grid lg:grid-cols-5'>
+    <div className='lg:col-span-2 p-4 flex flex-col'>
+      <div className='flex-grow'/>
+      <Image alt='' src="/page.png" width={450} height={450} className='m-auto' />
+      <div className='flex-grow'/>
+    </div>
+    <div className='lg:col-span-2 p-4 flex flex-col'>
+      <div className='flex-grow'/>
+      <div className='rounded-lg shadow-inner bg-gray-50 p-2 text-[70%] overflow-scroll scrollbar-hide'>
+        <div dangerouslySetInnerHTML={{ __html: md().render(code[0].test1) }} />
+      </div>
+      <div className='flex-grow'/>
+    </div>
+    <div id="info-block" className='p-4 flex flex-col space-y-4'>
+      <div className='transition duration-1000 delay-[150ms] translate-x-10 opacity-0'>
+        <h1 className='font-medium text-gray-600'>The Goal</h1>
+        <p className='text-[80%] text-gray-500'>For this project, I am shooting for two layers: A library containing pure graphics functionality and a separate library for engine overhead.</p>
+      </div>
+      <div className='transition duration-1000 delay-[300ms] translate-x-10 opacity-0'>
+        <h1 className='font-medium text-gray-600'>ECS</h1>
+        <p className='text-[80%] text-gray-500'>Using <a className='underline font-light' href="https://github.com/skypjack/entt">ENTT</a>, a memory efficient and fast entity-component system is integrated directly into the engine. As is shown in this example, the user can create their own system and push it into the scene. Then the application takes care of sorting the systems and calling their update functions.</p>
+      </div>
+      <div className='transition duration-1000 delay-[450ms] translate-x-10 opacity-0'>
+        <h1 className='font-medium text-gray-600'>Next Steps</h1>
+        <p className='text-[80%] text-gray-500'>In order to take control of any kind of engine-side memory handling, I plan to write the windowing all in the library. On top of this, to prioritize performance and control, the graphics API will be implemented with Vulkan.</p>
+      </div>
+    </div>
+  </div>)
+}
+
+function NewShowy({ code })
+{
+  return (
+    <div className='xl:grid xl:grid-cols-6'>
+      <div className='relative col-span-4 align-middle text-center'>
+        <Image src="/GDI.png" className='m-auto' width={1000} height={800} />
+      </div>
+      <div className='col-span-2'>
+        <div id="info-block" className='p-4 flex flex-col space-y-4'>
+          <div className='transition duration-1000 delay-[150ms] translate-x-10 opacity-0'>
+            <h1 className='font-medium text-gray-600'>Custom Memory Allocation</h1>
+            <p className='text-[90%] text-gray-500'>In order to ensure maximum performance, the standard memory allocators are written in the framework. There is a layer of abstraction, shown in the image, where the allocation method can either be in RAM or on the GPU. This way, standard allocation techniques can easily be extended for use in graphics memory.</p>
+          </div>
+          <div className='transition duration-1000 delay-[300ms] translate-x-10 opacity-0'>
+            <h1 className='font-medium text-gray-600'>Multithreading</h1>
+            <p className='text-[90%] text-gray-500'>The framework is set up so that every frame can be processed concurrently. This is done by giving each frame ownership to its own command pool. This way, individual command buffer states are not tracked, and their concurrent recording can transpire.</p>
+          </div>
+          <div className='transition duration-1000 delay-[450ms] translate-x-10 opacity-0'>
+            <h1 className='font-medium text-gray-600'>Next Steps</h1>
+            <p className='text-[90%] text-gray-500'>The entire project is being created with the intention to maximize the processing power of the GPU. There will be as few bindings and as little allocations as can possibly happen. This way, performance is ensured.</p>
+          </div>
+        </div>
+      </div>
+      <div className='col-span-3 p-2'>
+        <span className='font-medium text-[110%]'>Example Program</span>
+        <div className='rounded-lg shadow-inner bg-gray-50 p-2 text-[80%] max-h-[500px] overflow-scroll' dangerouslySetInnerHTML={{ __html: md().render(code[0].test1) }} />
+      </div>
+      <div className='col-span-3'>
+        <div className='p-4 pt-0 flex flex-col h-full'>
+          <div className='flex-grow' />
+          <Image alt='' src="/page.png" width={600} height={600} className='m-auto' />
+          <div className='w-3/4 m-auto text-center text-gray-400 text-[85%]'><i>An example of the OpenGL implementation avaliable on the github page.</i></div>
+          <div className='flex-grow' />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Index({ posts, resume, code }: any) {
   posts = posts.filter((i: any) => i.slug != ".DS_Store");
 
@@ -268,6 +339,8 @@ export default function Index({ posts, resume, code }: any) {
       children.forEach((child) => child.classList.remove("translate-x-10", "opacity-0"));
     }
   }, [])
+
+  //Currently I am <span className='font-medium text-gray-600'><i>{resume.status}</i></span>.
   
   return (
     <div>
@@ -285,6 +358,7 @@ export default function Index({ posts, resume, code }: any) {
         <div className='flex-grow pt-4'>
           <h1 className='font-bold text-center lg:text-left text-3xl text-white'><p className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.7)]">Welcome to my Website.</p></h1>
           <h2 className='font-light text-center lg:text-left text-sky-200'><p className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.6)]"><i>I am a <span className='font-medium'>computer scientist</span>, <span className="font-medium">mathematician</span>, and <span className="font-medium">physicist</span>.</i></p></h2>
+          <div className='font-light text-center lg:text-left text-sky-300 text-[80%] drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.6)]'>Who thrives on challenging problems and serving an important cause with creativity through my work.</div>
         </div>
         <div className='flex flex-row pt-2'>
           <div className='flex-grow'/>
@@ -296,8 +370,8 @@ export default function Index({ posts, resume, code }: any) {
       </div>
       
       <div id="cards" className='w-3/4 m-auto p-4 flex-col space-y-4 lg:grid lg:grid-cols-3 gap-8 max-w-[1200px]'>
-        <div className='transition duration-1000 delay-[100ms] col-span-3 text-center opacity-0 translate-y-6 text-gray-500'>
-          Currently I am <span className='font-medium text-gray-600'><i>{resume.status}</i></span>.
+        <div className='transition duration-1000 delay-[100ms] col-span-3 text-center opacity-0 translate-y-6 font-bold text-gray-700 text-lg'>
+          About me
         </div>
         <div className='transition duration-1000 delay-[100ms] translate-y-6 opacity-0'>
           <h1 className='text-[97%] text-gray-700 font-medium'>Motivation and Drive</h1>
@@ -314,36 +388,10 @@ export default function Index({ posts, resume, code }: any) {
       </div>
 
       <div className='border-t-[1px]'>
-        <div className='w-5/6 m-auto max-w-[1400px]'>
-          <h1 className='text-[125%] p-2 font-bold text-gray-600 text-center'>Functionality Spotlight: <a href="https://www.github.com/maxortner01/cpp2d"><span className='font-medium text-sky-400 underline'>cpp2d</span></a></h1>
-          <div className='lg:grid lg:grid-cols-5'>
-            <div className='lg:col-span-2 p-4 flex flex-col'>
-              <div className='flex-grow'/>
-              <Image alt='' src="/page.png" width={450} height={450} className='m-auto' />
-              <div className='flex-grow'/>
-            </div>
-            <div className='lg:col-span-2 p-4 flex flex-col'>
-              <div className='flex-grow'/>
-              <div className='rounded-lg shadow-inner bg-gray-50 p-2 text-[70%] overflow-scroll'>
-                <div dangerouslySetInnerHTML={{ __html: md().render(code[0].test1) }} />
-              </div>
-              <div className='flex-grow'/>
-            </div>
-            <div id="info-block" className='p-4 flex flex-col space-y-4'>
-              <div className='transition duration-1000 delay-[150ms] translate-x-10 opacity-0'>
-                <h1 className='font-medium text-gray-600'>The Goal</h1>
-                <p className='text-[80%] text-gray-500'>For this project, I am shooting for two layers: A library containing pure graphics functionality and a separate library for engine overhead.</p>
-              </div>
-              <div className='transition duration-1000 delay-[300ms] translate-x-10 opacity-0'>
-                <h1 className='font-medium text-gray-600'>ECS</h1>
-                <p className='text-[80%] text-gray-500'>Using <a className='underline font-light' href="https://github.com/skypjack/entt">ENTT</a>, a memory efficient and fast entity-component system is integrated directly into the engine. As is shown in this example, the user can create their own system and push it into the scene. Then the application takes care of sorting the systems and calling their update functions.</p>
-              </div>
-              <div className='transition duration-1000 delay-[450ms] translate-x-10 opacity-0'>
-                <h1 className='font-medium text-gray-600'>Next Steps</h1>
-                <p className='text-[80%] text-gray-500'>In order to take control of any kind of engine-side memory handling, I plan to write the windowing all in the library. On top of this, to prioritize performance and control, the graphics API will be implemented with Vulkan.</p>
-              </div>
-            </div>
-          </div>
+        <div className='w-5/6 m-auto max-w-[1600px]'>
+          <h1 className='text-[125%] p-2 font-bold text-gray-600 text-center'>Active Project: <a href="https://www.github.com/maxortner01/cpp2d"><span className='font-medium text-sky-400 underline'>cpp2d</span></a></h1>
+          <div className='w-3/4 m-auto mb-4'><p className='ml-2 text-gray-500 text-[90%] text-center'>I have been involved in graphics programming for almost a decade now, initially starting in Java with OpenGL and slowly moving into C++, which I've stayed for the last seven years or so. This passion for graphics has since strengthened and culminated into a passion for performat low-level computing systems. This project utilizes the <span className='font-medium text-gray-600'>Vulkan api, custom memory management, and a lightweight user API</span>. I think there is a key balance that should be struck between a nice user-friendly API and highly performat graphics systems. <a className='underline text-sky-400' href="/posts?tags=cpp2d">Check out the devlogs!</a></p></div>
+          <NewShowy code={code} />
         </div>
       </div>
 

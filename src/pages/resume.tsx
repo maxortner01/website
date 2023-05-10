@@ -74,7 +74,7 @@ export default function Resume({ resume }: any)
                 <div className="flex flex-row">
                     <div className="flex-grow mt-2">
                         <h1 className="text-[220%] print:text-[165%] font-extrabold">Max Ortner</h1>
-                        <h2 className="text-[100%] print:text-[80%] text-gray-400"><i>Computer Scientist, Mathematics, Physicist</i></h2>
+                        <h2 className="text-[100%] print:text-[80%] text-sky-400 underline"><a href="/resume.pdf">Download my full resume here.</a></h2>
                     </div>
                     <div>
                         <Image alt="" className="rounded-full border-gray-600 border-2 shadow-lg" src="/image3.png" width={100} height={100}/>
