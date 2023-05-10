@@ -241,6 +241,7 @@ function LanguageBreakdown()
 //list of repos: https://api.github.com/users/maxortner01/repos
 //language breakdown of repo: https://api.github.com/repos/maxortner01/cpp2d/languages
 
+/*
 function Showy({ code }) {
   return (
   <div className='lg:grid lg:grid-cols-5'>
@@ -271,14 +272,14 @@ function Showy({ code }) {
       </div>
     </div>
   </div>)
-}
+}*/
 
-function NewShowy({ code })
+function NewShowy({ code }: any)
 {
   return (
     <div className='xl:grid xl:grid-cols-6'>
       <div className='relative col-span-4 align-middle text-center'>
-        <Image src="/GDI.png" className='m-auto' width={1000} height={800} />
+        <Image alt='' src="/GDI.png" className='m-auto' width={1000} height={800} />
       </div>
       <div className='col-span-2'>
         <div id="info-block" className='p-4 flex flex-col space-y-4'>
