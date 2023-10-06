@@ -8,17 +8,18 @@ import { useEffect } from "react";
 function WorkCard({title, location, desc, date, className}: any)
 {
     return(
-        <div className={"mb-4 " + className}>
+        <div className={"mb-2 " + className}>
         <div className="flex flex-row mb-2 text-[95%]">
             <div className="w-2/3 text-justify">
                 <h1>
                     <span className="font-bold">{title}</span>
+                    <br />
                     <span className="text-gray-400"> {location}</span>
                 </h1>
             </div>
             <div className="w-1/3 text-right text-sky-500">{date}</div>
         </div>
-        <div className="text-[85%] text-gray-500">{desc}</div>
+        <div className="text-[85%] text-gray-500"><p dangerouslySetInnerHTML={{__html: desc}} /></div>
         </div>
     )
 }
@@ -104,7 +105,7 @@ export default function Resume({ resume }: any)
 
                 <div id="work-contain2">
                 {
-                    resume.projects.slice(0, 2).map((project: any, index: number) => {
+                    resume.projects.slice(0, 3).map((project: any, index: number) => {
                         return <WorkCard
                                     key = {project.title}
                                     title={<a className="underline" href={project.link}>{project.title}</a>}

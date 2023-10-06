@@ -65,11 +65,11 @@ export function Post({ title, link, date, desc, tags, selected_tags, perc=100, t
 
   return (
     <PostFrame link={link}>
-      <div className={'lg:flex lg:flex-row text-[' + perc.toString() + '%]'}>
+      <div className={'lg:flex lg:flex-row text-[120%]'}>
         <h1 className='lg:flex-grow font-medium text-gray-600'>{title}</h1>
         <h2 className='font-light text-sky-400'>{date_string}</h2>
       </div>
-      <p className={'text-gray-400 text-[' + (perc - 15).toString() + '%] mb-1'}>{desc}</p>
+      <p className={'text-gray-400 text-[95%] mb-1'}>{desc}</p>
       <div className='flex flex-row flex-wrap space-x-1'>
         {
           tags.sort((tag1: string, tag2: string) => {

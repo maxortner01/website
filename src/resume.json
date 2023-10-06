@@ -27,10 +27,16 @@
     ],
     "projects": [
         {
+            "title": "Parallel IO",
+            "link": "https://github.com/maxortner01/parallel-io",
+            "desc": "A utility being developed at Los Alamost National Lab for reading and writing NetCDF files in parallel, built off the <a class='underline' href='https://parallel-netcdf.github.io'>PNetCDF</a> library. Used for writing <a class='underline' href='https://github.com/sandialabs/exodusii'>ExodusII</a> files in parallel, since this functionality is not contained within the file types respective IO library.",
+            "date": "Current"
+        },
+        {
             "title": "cpp2d",
             "link": "https://github.com/maxortner01/cpp2d",
-            "desc": "My current project centered around a robust graphics API and a clean and minimal overhead engine API all written in C++. It is currently in its early stages, but it already supports many different features.",
-            "date": "Current"
+            "desc": "A project centered around a robust graphics API and a clean and minimal overhead engine API all written in C++. It is currently in its early stages, but it already supports many different features.",
+            "date": "April 2023"
         },
         {
             "title": "SGAL",
@@ -73,6 +79,12 @@
         ],
         "workExperience": [
             {
+                "title": "Post Baccalaureate Researcher",
+                "location": "Los Alamos National Laboratory",
+                "desc": "Worked on various aspects of the multi-physics software <a class='underline' href='https://github.com/flecsi/flecsi'>FleCSI</a>, as well as developed a <a class='underline' href='https://github.com/maxortner01/parallel-io'>library</a> for simulation outputs using parallel file I/O for HPC.",
+                "date": "June 2023 - Present"
+            },
+            {
                 "title": "Graphics Engine Programming",
                 "location": "Personal",
                 "desc": "Pursuing graphics and graphics engine programming on a personal level for many years. Specifically implementing and developing high performance systems in C++ in an easy-to-use and coherent form intended for users.",
@@ -89,12 +101,6 @@
                 "location": "Belmont University",
                 "desc": "Tutored many different students on math and physics topics. This includes personal tutoring as well as through the learning center present at my university.",
                 "date": "Jan. 2020 - May 2023"
-            },
-            {
-                "title": "Certified Restaraunt Supervisor",
-                "location": "Red Lobster",
-                "desc": "Managed the staff and daily activities, which included tasks like making sure everyone was working well together and managing the restaurant's daily cash intake.",
-                "date": "May 2021 - Nov. 2022"
             }
         ],
         "skills": [
@@ -126,6 +132,11 @@
             {
                 "type": "framework",
                 "name": "Vulkan",
+                "level": "significant"
+            },
+            {
+                "type": "framework",
+                "name": "MPI",
                 "level": "significant"
             },
             {
