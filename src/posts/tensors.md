@@ -8,7 +8,7 @@ tags:
  - physics
 ---
 
-If you're undergraduate phsyics experience is anything like mine, you were more than likely presented some formulas relating the *Laplacian operator* in different coordinate systems. For example, the two-dimensional Laplacian in Cartesian coordinates can be written in polar coordinates as 
+If your undergraduate physics experience is anything like mine, you were more than likely presented some formulas relating the *Laplacian operator* in different coordinate systems. For example, the two-dimensional Laplacian in Cartesian coordinates can be written in polar coordinates as 
 $$
     \nabla^2 = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} = \frac{\partial^2}{\partial r^2} + \frac{1}{r}\frac{\partial}{\partial r} + \frac{1}{r^2}\frac{\partial^2}{\partial\theta^2}.
 $$
@@ -57,7 +57,7 @@ $$
     r &= \sqrt{x^2 + y^2} & \theta &= \arctan(y / x).
 \end{align}
 $$
-Now we need to find the various derivates of each of these terms
+Now we need to find the various derivatives of each of these terms
 $$
 \begin{align}
     \frac{\partial r}{\partial x} &= \frac{x}{r} & \frac{\partial r}{\partial y} &= \frac{y}{r} \\\\
@@ -92,4 +92,4 @@ $$
     &= \frac{1}{r}\frac{\partial}{\partial r} + \frac{\partial^2}{\partial r^2} + \frac{1}{r^2}\frac{\partial^2}{\partial\theta^2}. 
 \end{split}
 $$
-This is the equation for the Laplacian in polar coordinates that we saw at first! It was rather involved for only two dimensions, as tensor manipulations are when you expand the indicies, so perhaps there's a quicker way to arrive at this result. Now imagine deriving the equation for spherical coordinates!
+This is the equation for the Laplacian in polar coordinates that we saw at first! It was rather involved for only two dimensions, as tensor manipulations are when you expand the indices, so perhaps there's a quicker way to arrive at this result. Now imagine deriving the equation for spherical coordinates!
