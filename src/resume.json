@@ -67,11 +67,11 @@
                 "creditial": "Math and Physics Double Major",
                 "data": [
                     {
-                        "name": "Current GPA",
-                        "value": "3.79"
+                        "name": "GPA",
+                        "value": "3.75"
                     },
                     {
-                        "name": "Anticipated graduation",
+                        "name": "Graduation",
                         "value": "December 2023"
                     }
                 ]
@@ -93,8 +93,8 @@
             {
                 "title": "Student",
                 "location": "Belmont University",
-                "desc": "Achieved 3.79 GPA and have participated in over 2 years of research. My intended graduation is December, 2023.",
-                "date": "Aug. 2019 - Present"
+                "desc": "Achieved 3.75 GPA and have participated in over 2 years of research. I graduated in December, 2023.",
+                "date": "Aug. 2019 - Dec. 2023"
             },
             {
                 "title": "Tutoring",
