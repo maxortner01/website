@@ -176,7 +176,7 @@ export default function Index({ posts, resume, code }: any) {
         
       </div>
       <div className='w-3/4 m-auto p-4 max-w-[1200px]'>
-        <div className='w-full m-auto grid grid-cols-4 space-x-28 text-center font-medium text-gray-500 mb-2'> 
+        <div className='w-full m-auto space-y-2 md:grid md:grid-cols-4 md:space-x-28 text-center font-medium text-gray-500 mb-2'> 
           <div onClick={() => setSelected(0)}><p className={'cursor-pointer text-[105%] ' + (selected_index == 0?selected:not_selected)}>Computer Science</p></div>
           <div onClick={() => setSelected(1)}><p className={'cursor-pointer text-[105%] ' + (selected_index == 1?selected:not_selected)}>Graphics</p></div>
           <div onClick={() => setSelected(2)}><p className={'cursor-pointer text-[105%] ' + (selected_index == 2?selected:not_selected)}>Mathematics</p></div>
