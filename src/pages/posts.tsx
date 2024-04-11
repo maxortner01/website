@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 
 function LoadPage()
 {
@@ -191,7 +192,7 @@ export default function Posts({ posts, resume }: any) {
             <div className='lg:flex lg:flex-row'>
               <h1 className='lg:flex-grow font-bold text-3xl text-sky-500 lg:mt-0 mt-6'>Posts</h1>
               <div className='flex flex-row space-x-2 group-focus:border-b-2'>
-                <span className="scale-70 material-symbols-outlined text-gray-400">search</span>
+                <MagnifyingGlassIcon className='w-5 pb-[11px] text-gray-500' />
                 <div className='lg:-translate-y-[1px]'><input placeholder='Search' type='search' className='outline-none text-[105%] focus:border-b-2 text-gray-500 pb-[1px]' value={search} onChange={(e: any) => setSearch(e.target.value)}/></div>
               </div>
             </div>
