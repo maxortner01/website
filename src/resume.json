@@ -1,5 +1,5 @@
 {
-    "status": "working as a Post-Bach at Los Alamos National Laboratory in Los Alamos, NM",
+    "status": "working as a Post-Bach at the Los Alamos National Laboratory",
     "quotes": [
         {
             "quote": "As far as the laws of mathematics refer to reality, they are not certain; and as far as they are certain, they do not refer to reality.",
@@ -27,22 +27,16 @@
     ],
     "projects": [
         {
-            "title": "Parallel IO",
-            "link": "https://github.com/maxortner01/parallel-io",
-            "desc": "A utility being developed at Los Alamost National Lab for reading and writing NetCDF files in parallel, built off the <a class='underline' href='https://parallel-netcdf.github.io'>PNetCDF</a> library. Used for writing <a class='underline' href='https://github.com/sandialabs/exodusii'>ExodusII</a> files in parallel, since this functionality is not contained within the file types respective IO library.",
-            "date": "Current"
+            "title": "Midnight Graphics",
+            "link": "https://github.com/maxortner01/midnight-graphics",
+            "desc": "Cross-platform 3D graphics library with a simple interface that utilizes the Vulkan graphics API to maximize performance potential.",
+            "date": "May 2024"
         },
         {
-            "title": "cpp2d",
-            "link": "https://github.com/maxortner01/cpp2d",
-            "desc": "A project centered around a robust graphics API and a clean and minimal overhead engine API all written in C++. It is currently in its early stages, but it already supports many different features.",
-            "date": "April 2023"
-        },
-        {
-            "title": "SGAL",
-            "link": "https://github.com/maxortner01/sgal",
-            "desc": "Inspired by the framework API of SFML, this project wishes to bring clean and minimal overhead API functionality to the rendering of 3D scenes. This includes access functionality to generating vertex arrays using multiple threads. It does not require any dependencies (all window handling is done inside of SGAL).",
-            "date": "Fall 2020"
+            "title": "Simple Lua",
+            "link": "https://github.com/maxortner01/simple-lua",
+            "desc": "C++ wrapper for the Lua scripting language that prioritizes ease-of-use.",
+            "date": "January 2024"
         },
         {
             "title": "This website",
@@ -57,7 +51,7 @@
         {
             "phone": "+1 (270) 227-9521",
             "address": [
-                "Brentwood, TN"
+                "Santa Fe, NM"
             ],
             "email": "contact@maxortner.com"
         },
@@ -81,7 +75,7 @@
             {
                 "title": "Post Baccalaureate Researcher",
                 "location": "Los Alamos National Laboratory",
-                "desc": "Worked on various aspects of the multi-physics software <a class='underline' href='https://github.com/flecsi/flecsi'>FleCSI</a>, as well as developed a <a class='underline' href='https://github.com/maxortner01/parallel-io'>library</a> for simulation outputs using parallel file I/O for HPC.",
+                "desc": "Worked on various aspects of the multi-physics software <a class='underline' href='https://github.com/flecsi/flecsi'>FleCSI</a> and assisted theorists and experimentalists with their physics software, at times operating with a measure of autonomy on my own projects.",
                 "date": "June 2023 - Present"
             },
             {
@@ -89,12 +83,6 @@
                 "location": "Personal",
                 "desc": "Pursuing graphics and graphics engine programming on a personal level for many years. Specifically implementing and developing high performance systems in C++ in an easy-to-use and coherent form intended for users.",
                 "date": "~2011 - Present"
-            },
-            {
-                "title": "Student",
-                "location": "Belmont University",
-                "desc": "Achieved 3.75 GPA and have participated in over 2 years of research. I graduated in December, 2023.",
-                "date": "Aug. 2019 - Dec. 2023"
             },
             {
                 "title": "Tutoring",
