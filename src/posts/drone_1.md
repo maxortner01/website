@@ -1,5 +1,5 @@
 ---
-title: "Modelling a Drone I: Physics"
+title: "Modeling a Drone I: Physics"
 metaDesc: "Learning about control systems and the importance of software simulation."
 date: "2024-07-10"
 tags: 

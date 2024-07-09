@@ -2,6 +2,15 @@
 
 
 module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/uav',
+        destination: '/posts?tags=drone',
+        permanent: true,
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {
