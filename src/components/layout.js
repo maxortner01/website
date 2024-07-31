@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Script from 'next/script';
 import { NewspaperIcon, DocumentIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
 
 function NavBarButton({ children, text, directory, className })
@@ -13,6 +14,15 @@ function NavBarButton({ children, text, directory, className })
 
 export default function Layout({ children }) {
   return (
+    <>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4E54Q2EL9"></script>
+    <Script id="analytics">{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-P4E54Q2EL9');
+    `}</Script>
     <div className='font-sans-serif'>
     <div className='z-20 min-w-[365px] max-w-[200px] md:min-w-[600px] flex flex-row border-2 border-sky-400 fixed top-4 left-[50%] -translate-x-[50%] backdrop-blur-sm bg-white/40 shadow-md text-lg rounded-lg overflow-hidden scrollbar-hide'>
         <Link className='min-w-[140px] md:flex-grow' href="/"><NavBarButton text={"Max Ortner"} className={"font-medium text-sky-500 mr-4"} /></Link>
@@ -28,5 +38,6 @@ export default function Layout({ children }) {
         {children}
     </div>
     </div>
+    </>
   );
 }
